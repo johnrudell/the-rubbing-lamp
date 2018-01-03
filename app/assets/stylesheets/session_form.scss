@@ -1,0 +1,131 @@
+@import "./util/variables";
+
+.session-form-container {
+  background-color: $color-grey1;
+  display: flex;
+  justify-content: center;
+}
+
+.session-form-box {
+  width: 400px;
+  background-color: white;
+  margin: auto;
+  h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 20px 20px 0 20px;
+  }
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  .session-input {
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid $color-grey3;
+    &:focus {
+      outline: 1px solid $color-green;
+    }
+  }
+  .submit-button {
+    background-color: $color-green;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.4px;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      background-color: $color-dark-green3;
+      cursor: pointer;
+      transform:translateY(-1px);
+    }
+  }
+  .demo-button {
+    background-color: $color-dark-blue;
+    &:hover {
+      color: black;
+      background-color: $color-dark-blue;
+    }
+  }
+}
+
+/* Input placeholder styles */
+::-webkit-input-placeholder {
+  color: $color-grey4;
+  font-weight: 300;
+}
+
+.small-text {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 16px;
+
+  /* Terms of use links */
+  .link {
+    font-weight: 400;
+  }
+}
+
+.separator {
+  margin-top: 10px;
+  text-align: center;
+  .line {
+    height: 1px;
+    background-color: #F1EEEA;
+    width: 90%;
+  }
+  .text {
+    display: inline-block;
+    background-color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    top: -14px;
+    position: relative;
+  }
+}
+
+.session-form-addon {
+  background-color: $color-grey2;
+  margin: auto;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+.link {
+  font-weight: 700;
+  color: $color-link-blue;
+  &:hover {
+    color: black;
+    cursor: pointer;
+  }
+  &:visited {
+    color: none;
+  }
+}
+
+
+/* Sign up only */
+.session-form-footer {
+  border-top: 1px solid $color-grey1;
+  margin-top: 20px;
+}
+/* Log in only */
+.session-form-header {
+  border-bottom: 1px solid $color-grey1;
+  margin-bottom: 5px;
+}
+
+
+/* Errors */
+.session-errors {
+  color: red;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  li {
+    padding: 2px 0;
+  }
+}
