@@ -6,27 +6,23 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-
-import GreetingContainer from './greeting/greeting_container';
-import SessionFormContainer from './session_form/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
+import Navbar from './navbar/navbar_container';
+import SessionFormContainer from './session_form/session_form_container';
+import Footer from './footer/footer';
 
 const App = () => (
   <div className="box">
+    <Navbar />
 
-    <nav className="row header temp-nav">
-      <ul className="temp-nav-left temp-nav-list">
-        <li>Explore</li>
-        <li>Make a wish</li>
-      </ul>
+    <div className="scroll">
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
 
-      <Link className="temp-nav-center" to="/">The Rubbing Lamp</Link>
+      <Footer />
+    </div>
 
-      <GreetingContainer />
-    </nav>
-
-    <AuthRoute path="/login" component={SessionFormContainer} />
-    <AuthRoute path="/signup" component={SessionFormContainer} />
   </div>
 );
 

@@ -4,6 +4,7 @@
   background-color: $color-grey1;
   display: flex;
   justify-content: center;
+  padding: 50px;
 }
 
 .session-form-box {
@@ -39,7 +40,7 @@
     &:hover {
       background-color: $color-dark-green3;
       cursor: pointer;
-      transform:translateY(-1px);
+      transform: translateY(-1px);
     }
   }
   .demo-button {
@@ -62,11 +63,6 @@
   text-align: center;
   margin-bottom: 30px;
   line-height: 16px;
-
-  /* Terms of use links */
-  .link {
-    font-weight: 400;
-  }
 }
 
 .separator {
@@ -76,6 +72,7 @@
     height: 1px;
     background-color: #F1EEEA;
     width: 90%;
+    margin-left: 5%;
   }
   .text {
     display: inline-block;

@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,13 +43,24 @@ class SessionForm extends React.Component {
     );
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    this.setState = {
+      username: 'demoUser',
+      email: "demoUser@demo.com",
+      password: "password"
+    };
+    const demoSession = Object.assign({}, this.setState);
+    this.props.login(demoSession);
+  }
+
   render() {
 
     if (this.props.formType === 'signup') {
       // Sign Up
       return (
         <div className="row content session-form-container">
-          <form className="session-form-box" onSubmit={this.handleSubmit}>
+          <form className="session-form-box">
             <div className="session-form-addon session-form-header">
               Have an account? <Link className="link" to="/login">Log in</Link>
             </div>
@@ -62,7 +74,7 @@ class SessionForm extends React.Component {
                 onChange={this.update('username')} />
               <input className="session-input"
                 placeholder="Email"
-                type="text"
+                type="email"
                 onChange={this.update('email')} />
               <input className="session-input"
                 placeholder="Password"
@@ -71,11 +83,10 @@ class SessionForm extends React.Component {
                 onChange={this.update('password')} />
               <input className="session-input submit-button"
                 type="submit"
+                onClick={this.handleSubmit}
                 value="Create account" />
               <p className="small-text">
-                By signing up, you agree to our <a className="link">terms of use</a>,&nbsp;
-                <a className="link">privacy policy</a>, and &nbsp;
-                <a className="link">cookie policy</a>.
+                By signing up, you agree to become a genie.
               </p>
               <div className="separator">
                 <div className="line"></div>
@@ -83,6 +94,7 @@ class SessionForm extends React.Component {
               </div>
               <input className="session-input submit-button demo-button"
                 type="submit"
+                onClick={this.demoLogin}
                 value="Demo log in" />
               <p className="small-text">Log in immediately and experience the wonders of being a genie.</p>
             </div>
@@ -93,7 +105,7 @@ class SessionForm extends React.Component {
       // Log in
       return (
         <div className="row content session-form-container">
-          <form className="session-form-box" onSubmit={this.handleSubmit}>
+          <form className="session-form-box">
             <h2>Log in</h2>
             {this.renderErrors()}
             <div className="session-form">
@@ -109,6 +121,7 @@ class SessionForm extends React.Component {
                 onChange={this.update('password')} />
               <input className="session-input submit-button"
                 type="submit"
+                onClick={this.handleSubmit}
                 value="Log me in!" />
               <div className="separator">
                 <div className="line"></div>
@@ -116,6 +129,7 @@ class SessionForm extends React.Component {
               </div>
               <input className="session-input submit-button demo-button"
                 type="submit"
+                onClick={this.demoLogin}
                 value="Demo log in" />
               <p className="small-text">Log in immediately and experience the wonders of being a genie.</p>
             </div>

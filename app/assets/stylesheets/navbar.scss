@@ -1,6 +1,6 @@
 @import "./util/variables";
 
-.temp-nav {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,9 +8,9 @@
   font-size: 14px;
 }
 
-.temp-nav-list {
+.nav-list {
   display: flex;
-  li {
+  * {
     padding: 0 8px;
     &:hover {
       color: $color-dark-green1;
@@ -19,21 +19,24 @@
   }
 }
 
-.temp-nav-left {
-  li {
-  }
-}
+// .nav-left {
+//   li {
+//   }
+// }
 
-.temp-nav-center {
+.nav-center {
   font-family: 'Chicle', cursive;
   font-size: 24px;
   color: $color-dark-green3;
 }
 
-.temp-nav-right {
+.nav-right {
   li {
     * {
-      padding: 0 2px;
+      padding: 0 3px;
+      &:focus {
+        outline: 0;
+      }
       &:visited {
         color: inherit;
       }

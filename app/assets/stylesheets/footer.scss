@@ -1,0 +1,40 @@
+@import "./util/variables";
+
+.footer-container {
+  font-size: 12px;
+  ul {
+    display: flex;
+  }
+}
+
+.footer-category-list {
+  padding: 25px;
+  border-bottom: 2px solid $color-grey3;
+  li {
+    margin-right: 15px;
+    font-size: 12px;
+    &:hover {
+      color: $color-dark-green2;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.copyright {
+  padding: 25px;
+}
+
+.portfolio-link-list {
+  padding: 0 0 25px 25px;
+  li {
+    margin-right: 18px;
+    font-size: 20px;
+    a {
+      color: black;
+      &:hover {
+        color: $color-dark-green2;
+      }
+    }
+  }
+}
