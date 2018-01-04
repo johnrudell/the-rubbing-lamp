@@ -8,7 +8,7 @@
 }
 
 .footer-category-list {
-  padding: 25px;
+  padding: $padding-content1;
   border-bottom: 2px solid $color-grey3;
   li {
     margin-right: 15px;
@@ -22,11 +22,11 @@
 }
 
 .copyright {
-  padding: 25px;
+  padding: $padding-content1;
 }
 
 .portfolio-link-list {
-  padding: 0 0 25px 25px;
+  padding: 0 0 25px $padding-content1;
   li {
     margin-right: 18px;
     font-size: 20px;

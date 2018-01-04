@@ -1,0 +1,23 @@
+@import "./util/variables";
+
+.category-index-container {
+  display: flex;
+}
+
+.category-index {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-bottom: 1px solid $color-grey3;
+  li {
+    margin-right: 10px;
+    padding: 10px 10px 8px 0;
+    font-size: 15px;
+    color: $color-grey5;
+    &:hover {
+      color: $color-black2;
+      cursor: pointer;
+    }
+  }
+}
