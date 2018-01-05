@@ -12,7 +12,7 @@ class CategoryIndex extends React.Component {
     const categories = this.props.categories.map( category => {
       return (
         <li key={category.id}>
-          {category.category_name}
+          {category.name}
         </li>
       );
     });

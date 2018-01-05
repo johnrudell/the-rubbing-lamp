@@ -11,7 +11,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Navbar from './entities/navbar/navbar_container';
 import SessionFormContainer from './session/session_form_container';
 import Footer from './entities/footer/footer';
-import CategoryIndex from './entities/categories/category_index_container';
+import CategoryIndexContainer from './entities/categories/category_index_container';
 
 const App = () => (
   <div className="box">
@@ -21,8 +21,7 @@ const App = () => (
       <Switch>
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
-
-        <CategoryIndex />
+        <CategoryIndexContainer />
       </Switch>
 
       <Footer />

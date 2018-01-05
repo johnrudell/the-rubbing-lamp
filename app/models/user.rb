@@ -5,7 +5,7 @@
 #  id              :integer          not null, primary key
 #  username        :string           not null
 #  email           :string           not null
-#  user_img_url    :string
+#  img_url         :string
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -21,9 +21,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  # has_many: backings
+  has_many :projects
 
-  # has_many: projects
+  # has_many: backings
 
   # has_many: backed_projects,
   #   through: backings,
