@@ -4,17 +4,18 @@
 $padding-content1: 30px; // moves inner content in
 
 $color-green: #169d74; // hover submit buttons
+$color-green2: #009E74;
+$color-green3: #037362; // $ pledged
 
-$color-dark-green1: #0f7262; // hover nav links
-$color-dark-green2: #0f7262;
+$color-dark-green1: #0f7262; // hover nav links, progressBar color
 $color-dark-green3: #084751; // title
-
 
 $color-grey1: #F0F0F0; // very light
 $color-grey2: rgba(241,238,234,0.2); // faded
-$color-grey3: #DCDEDD; // middle
+$color-grey3: #DCDEDD; // middle, project-list-item border
 $color-grey4: #9B9E9E; // category text
 $color-grey5: #969696; // placeholder text
+$color-grey6: #e8e8e8; // progressBar trail color
 
 $color-black1: #282828; // main black text
 $color-black2: #515757; // hover black text on category items

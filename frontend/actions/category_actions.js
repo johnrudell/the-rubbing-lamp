@@ -25,10 +25,10 @@ export const fetchCategories = () => {
   };
 };
 
-export const fetchCategory = () => {
+export const fetchCategory = (id) => {
   return dispatch => {
-    return APIUtil.fetchCategory().then(category => {
-      return dispatch(receivecategory(category));
+    return APIUtil.fetchCategory(id).then(category => {
+      return dispatch(receiveCategory(category));
     });
   };
 };

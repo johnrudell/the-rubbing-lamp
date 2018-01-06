@@ -24,6 +24,7 @@ export const clearSessionErrors = () => {
   };
 };
 
+// Can refractor to implicit returns later
 export const signup = user => dispatch => {
   return APIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
@@ -32,16 +33,17 @@ export const signup = user => dispatch => {
   ))
 };
 
+// Returning everything syntax
 export const login = user => dispatch => {
-  return APIUtil.login(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
-    dispatch(receiveSessionErrors(err.responseJSON))
-  ))
+  return APIUtil.login(user).then(user => {
+    return dispatch(receiveCurrentUser(user));
+  }), err => {
+    return dispatch(receiveSessionErrors(err.responseJSON));
+  };
 };
 
 export const logout = () => dispatch => {
-  return APIUtil.logout().then(user => (
-    dispatch(receiveCurrentUser(null))
-  ))
+  return APIUtil.logout().then(user => {
+    return dispatch(receiveCurrentUser(null));
+  });
 };

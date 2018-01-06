@@ -3,4 +3,21 @@
 /* What is displayed on the main page */
 .main-content {
   padding: $padding-content1;
+  // display: flex;
+}
+
+/* <Link> and <a> resets */
+.decolor-link {
+  color: inherit;
+  &:visited {
+    color: inherit;
+  }
+}
+
+.color-green {
+  color: $color-green2;
+}
+
+.bold {
+  font-weight: 400;
 }

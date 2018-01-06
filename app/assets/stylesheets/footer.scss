@@ -2,6 +2,7 @@
 
 .footer-container {
   font-size: 12px;
+  border-top: 1.5px solid $color-black2;
   ul {
     display: flex;
   }
@@ -14,7 +15,7 @@
     margin-right: 15px;
     font-size: 12px;
     &:hover {
-      color: $color-dark-green2;
+      color: $color-dark-green1;
       cursor: pointer;
       text-decoration: underline;
     }
@@ -33,7 +34,7 @@
     a {
       color: black;
       &:hover {
-        color: $color-dark-green2;
+        color: $color-dark-green1;
       }
     }
   }

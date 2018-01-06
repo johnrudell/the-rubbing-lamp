@@ -1,5 +1,6 @@
 json.extract! project,  :id,
                         :title,
+                        :img_url,
                         :short_blurb,
                         :description,
                         :funding_goal,

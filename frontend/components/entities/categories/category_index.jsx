@@ -12,10 +12,17 @@ class CategoryIndex extends React.Component {
     const categories = this.props.categories.map( category => {
       return (
         <li key={category.id}>
-          {category.name}
+          <Link className="decolor-link" to={`/categories/${category.id}`}>
+            {category.name}
+          </Link>
         </li>
       );
     });
+
+    // <li key={category.id}>
+    //   {category.name}
+    // </li>
+
 
     return (
       <div className="main-content category-index-container">

@@ -10,7 +10,9 @@ const Navbar = ({ currentUser, logout }) => {
   return (
     <nav className="row header navbar">
       <ul className="nav-left nav-list">
-        <li>Explore</li>
+        <li>
+          <Link className="decolor-link" to="/discover">Explore</Link>
+        </li>
         <li>Make a wish</li>
       </ul>
 
