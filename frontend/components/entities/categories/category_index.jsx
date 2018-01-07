@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import CategoryShowContainer from './category_show_container';
 
 class CategoryIndex extends React.Component {
@@ -13,9 +13,9 @@ class CategoryIndex extends React.Component {
     const categories = this.props.categories.map( category => {
       return (
         <li key={category.id}>
-          <Link className="decolor-link" to={`/categories/${category.id}`}>
+          <NavLink className="decolor-link" to={`/categories/${category.id}`}>
             {category.name}
-          </Link>
+          </NavLink>
         </li>
       );
     });

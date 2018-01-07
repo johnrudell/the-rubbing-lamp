@@ -47,7 +47,7 @@ class CategoryShow extends React.Component {
         </div>
       );
 
-      const projectPreview = projects.map((project, idx) => {
+      const projectPreview = projects.map(project => {
         if (project.id !== recentProject.id) {
           return (
             <ProjectIndexItem key={project.id} project={project} />

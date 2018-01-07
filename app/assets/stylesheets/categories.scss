@@ -14,10 +14,18 @@
     color: $color-grey5;
     &:hover {
       color: $color-black2;
-      cursor: pointer;
+    }
+    /* Active category link */
+    .active {
+      color: $color-black1;
+      &:hover {
+        color: $color-black2;
+      }
     }
   }
 }
+
+
 
 
 /* Category Show (for each category's projects) */
