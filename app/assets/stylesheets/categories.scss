@@ -1,9 +1,6 @@
 @import "./util/variables";
 
-.category-index-container {
-  display: flex;
-}
-
+/* Category Index (only for names) */
 .category-index {
   display: flex;
   width: 100%;
@@ -19,5 +16,52 @@
       color: $color-black2;
       cursor: pointer;
     }
+  }
+}
+
+
+/* Category Show (for each category's projects) */
+.main-category-projects {
+  display: flex;
+  margin-top: 55px;
+}
+
+.featured-project-container {
+}
+
+.featured-header {
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-bottom: 11px;
+}
+.featured-img {
+  object-fit: cover;
+  width: 400px;
+  height: 400px;
+}
+
+.featured-info-container {
+  font-size: 13px;
+  .featured-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .featured-author {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .featured-percent {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 24px;
+  }
+}
+
+.project-index-list {
+  flex-direction: column;
+  h2 {
+    margin-left: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color-grey3;
   }
 }

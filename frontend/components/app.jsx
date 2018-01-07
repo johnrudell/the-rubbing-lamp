@@ -24,9 +24,8 @@ const App = () => (
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <Route exact path="/discover" component={ProjectIndexContainer} />
-        <Route exact path='/categories/:categoryId' component={CategoryShowContainer} />
+        <Route path="/" component={CategoryIndexContainer} />
 
-        <CategoryIndexContainer />
       </Switch>
 
       <Footer />

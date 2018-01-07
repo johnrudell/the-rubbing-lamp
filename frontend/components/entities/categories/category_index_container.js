@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { fetchCategories } from '../../../actions/category_actions';
+import { selectCategories } from '../../../reducers/selectors';
 import CategoryIndex from './category_index';
 
 const mapStateToProps = state => {
   return {
-    categories: Object.values(state.entities.categories)
+    categories: selectCategories(state),
   };
 };
 

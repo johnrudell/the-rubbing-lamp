@@ -12,6 +12,7 @@
 .project-index-list {
   display: flex;
   flex-wrap: wrap;
+  // justify-content: center;
 }
 
 .project-list-item {
@@ -20,6 +21,7 @@
 }
 
 .project-img {
+  object-fit: cover;
   height: 240px;
   width: 400px;
   border-bottom: 1px solid $color-grey3;
@@ -52,7 +54,7 @@
     margin-bottom: 3px;
   }
   .project-category {
-    margin: 10px 0;
+    margin: 11px 0;
     text-decoration: underline;
     &:hover {
       color: $color-black1;

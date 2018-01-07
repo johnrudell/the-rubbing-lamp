@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
 import { fetchCategory } from '../../../actions/category_actions';
+import { selectCategoryProjects } from '../../../reducers/selectors';
 import CategoryShow from './category_show';
-import { fetchProject } from '../../../actions/project_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   // debugger
-  const category = state.entities.categories[ownProps.match.params.categoryId] || { project_ids: [] };
-  debugger
+  // const category = state.entities.categories[ownProps.match.params.categoryId] || { project_ids: [] };
+  const category = state.entities.categories[state.ui.categoryDisplay];
+
   return {
-    category: category,
-    projects: category.project_ids.map( id => state.entities.projects[id])
+    category,
+    projects: selectCategoryProjects(state, category)
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCategory: id => dispatch(fetchCategory(id)),
-    fetchProject: id => dispatch(fetchProject(id)),
+    fetchCategory: id => dispatch(fetchCategory(id))
   };
 };
 

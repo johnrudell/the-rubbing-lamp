@@ -4,6 +4,7 @@ import {
   RECEIVE_PROJECT,
   REMOVE_PROJECT
 } from '../actions/project_actions';
+import { RECEIVE_CATEGORY } from '../actions/category_actions';
 
 const projectsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,6 +17,12 @@ const projectsReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.project.id];
       return newState;
+    case RECEIVE_CATEGORY:
+      const projects = action.payload.projects.reduce((acc, project) => {
+        acc[project.id] = project;
+        return acc;
+      }, {});
+      return merge({}, state, projects);
     default:
       return state;
   }

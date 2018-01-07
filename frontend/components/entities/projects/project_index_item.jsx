@@ -1,28 +1,14 @@
 import React from 'react';
 import { Line, Circle } from 'rc-progress';
 import { Link } from 'react-router-dom';
+import { percentFundedFunction, daysToGo } from '../../../util/project_util';
 
 class ProjectIndexItem extends React.Component {
 
   render() {
     const { project } = this.props;
 
-    const daysToGo = (end_date) => {
-      const oneDay = 24 * 60 * 60 * 1000; // seconds in one day
-      const date1 = Date.parse(new Date());
-      const date2 = Date.parse(end_date);
-
-      const dayDifference = Math.round(Math.abs((date1 - date2) / oneDay));
-
-      if (date2 < date1) {
-        return "This wish has been granted!";
-      } else {
-        return dayDifference + " days to go";
-      }
-    };
-
-    const percentFunded = Math.floor(
-      (project.funding_raised/project.funding_goal) * 100);
+    const percentFunded = percentFundedFunction(project.funding_raised, project.funding_goal);
 
     return (
       <li className="project-list-item">

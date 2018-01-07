@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import CategoryShowContainer from './category_show_container';
 
 class CategoryIndex extends React.Component {
 
@@ -19,16 +20,14 @@ class CategoryIndex extends React.Component {
       );
     });
 
-    // <li key={category.id}>
-    //   {category.name}
-    // </li>
-
-
     return (
-      <div className="main-content category-index-container">
+      <div className="main-content">
         <ul className="category-index">
           {categories}
         </ul>
+        <div>
+          <Route exact path='/categories/:categoryId' component={CategoryShowContainer} />
+        </div>
       </div>
     );
   }
