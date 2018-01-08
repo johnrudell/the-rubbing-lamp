@@ -26,7 +26,7 @@ class ProjectIndexItem extends React.Component {
           <div className="project-funding">${project.funding_raised} pledged</div>
           <div className="project-percent">{percentFunded}% funded</div>
           <div className="project-deadline">{daysToGo(project.deadline)}</div>
-          <div className="project-category">{project.category.name}</div>
+          <div className="placeholder project-category">{project.category.name}</div>
         </div>
       </li>
     );

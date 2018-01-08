@@ -14,10 +14,10 @@ export const receiveProjects = projects => {
   };
 };
 
-export const receiveProject = project => {
+export const receiveProject = payload => {
   return {
     type: RECEIVE_PROJECT,
-    project
+    payload
   };
 };
 

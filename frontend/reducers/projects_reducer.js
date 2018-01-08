@@ -12,7 +12,7 @@ const projectsReducer = (state = {}, action) => {
     case RECEIVE_PROJECTS:
       return action.projects;
     case RECEIVE_PROJECT:
-      return merge({}, state, { [action.project.id]: action.project });
+      return merge({}, state, { [action.payload.projects.id]: action.payload.projects });
     case REMOVE_PROJECT:
       let newState = merge({}, state);
       delete newState[action.project.id];

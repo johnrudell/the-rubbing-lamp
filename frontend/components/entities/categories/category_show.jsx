@@ -65,7 +65,7 @@ class CategoryShow extends React.Component {
           <ul className="preview-project-list">
             <h2 className="featured-header">{category.name}</h2>
             {projectPreview}
-            <button className="view-all-button">View All</button>
+            <button className="placeholder view-all-button">View All</button>
           </ul>
         </div>
       );

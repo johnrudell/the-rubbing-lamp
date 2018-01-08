@@ -13,13 +13,15 @@ const Navbar = ({ currentUser, logout }) => {
         <li>
           <Link className="decolor-link" to="/discover">Explore</Link>
         </li>
-        <li>Make a wish</li>
+        <li className="placeholder">
+          <Link className="decolor-link" to="/project/new">Make a wish</Link>
+        </li>
       </ul>
 
       <Link className="nav-center" to="/">The Rubbing Lamp</Link>
 
       <ul className="nav-right nav-list">
-        <li>
+        <li className="placeholder">
           <span>Search</span>
           <i className="fa fa-search" aria-hidden="true"></i>
         </li>

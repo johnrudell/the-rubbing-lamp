@@ -6,7 +6,7 @@ class Footer extends React.Component {
   render () {
     return (
       <footer className="row footer footer-container">
-        <ul className="footer-category-list">
+        <ul className="placeholder footer-category-list">
           <li className="color-green-hover">Arts</li>
           <li className="color-green-hover">Comics & Illustration</li>
           <li className="color-green-hover">Design & Tech</li>
@@ -23,17 +23,17 @@ class Footer extends React.Component {
 
         <ul className="portfolio-link-list">
           <li>
-            <a className="portfolio-link" href="https://github.com/johnrudell">
+            <a className="color-green-hover" href="https://github.com/johnrudell">
               <i className="fa fa-github" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a className="portfolio-link" href="https://www.linkedin.com/in/johnrudell/">
+            <a className="color-green-hover" href="https://www.linkedin.com/in/johnrudell/">
               <i className="fa fa-linkedin-square" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a className="portfolio-link" href="http://johnrudell.com/">
+            <a className="color-green-hover" href="http://johnrudell.com/">
               <i className="fa fa-user" aria-hidden="true"></i>
             </a>
           </li>

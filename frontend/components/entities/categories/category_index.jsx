@@ -25,6 +25,7 @@ class CategoryIndex extends React.Component {
         <ul className="category-index">
           {categories}
         </ul>
+        <img className="placeholder-splash" src="https://images.pexels.com/photos/220067/pexels-photo-220067.jpeg"></img>
         <div>
           <Route exact path='/categories/:categoryId' component={CategoryShowContainer} />
         </div>
