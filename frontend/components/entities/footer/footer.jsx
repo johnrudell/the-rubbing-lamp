@@ -7,14 +7,14 @@ class Footer extends React.Component {
     return (
       <footer className="row footer footer-container">
         <ul className="footer-category-list">
-          <li>Arts</li>
-          <li>Comics & Illustration</li>
-          <li>Design & Tech</li>
-          <li>Film</li>
-          <li>Food & Craft</li>
-          <li>Games</li>
-          <li>Music</li>
-          <li>Publishing</li>
+          <li className="color-green-hover">Arts</li>
+          <li className="color-green-hover">Comics & Illustration</li>
+          <li className="color-green-hover">Design & Tech</li>
+          <li className="color-green-hover">Film</li>
+          <li className="color-green-hover">Food & Craft</li>
+          <li className="color-green-hover">Games</li>
+          <li className="color-green-hover">Music</li>
+          <li className="color-green-hover">Publishing</li>
         </ul>
 
         <div className="copyright">

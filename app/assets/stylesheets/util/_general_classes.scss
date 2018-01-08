@@ -21,3 +21,13 @@
 .bold {
   font-weight: 400;
 }
+
+/* Green links with underline */
+.color-green-hover {
+  color: $color-black1;
+  &:hover {
+    text-decoration: underline;
+    color: $color-dark-green1;
+    cursor: pointer;
+  }
+}

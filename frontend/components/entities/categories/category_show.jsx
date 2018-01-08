@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectIndexItem from '../projects/project_index_item';
-import { percentFundedFunction, daysToGo } from '../../../util/project_util';
+import { percentFundedFunction } from '../../../util/project_util';
+import CategoryShowItem from './category_show_item';
 
 class CategoryShow extends React.Component {
   componentDidMount() {
@@ -50,7 +51,7 @@ class CategoryShow extends React.Component {
       const projectPreview = projects.map(project => {
         if (project.id !== recentProject.id) {
           return (
-            <ProjectIndexItem key={project.id} project={project} />
+            <CategoryShowItem key={project.id} project={project} />
           );
         }
       });
@@ -61,9 +62,10 @@ class CategoryShow extends React.Component {
             <h2 className="featured-header">Featured Project</h2>
             {featuredProject}
           </div>
-          <ul className="project-index-list">
+          <ul className="preview-project-list">
             <h2 className="featured-header">{category.name}</h2>
             {projectPreview}
+            <button className="view-all-button">View All</button>
           </ul>
         </div>
       );
