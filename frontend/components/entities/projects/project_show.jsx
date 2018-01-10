@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line, Circle } from 'rc-progress';
+import { Link } from 'react-router-dom';
 import { percentFundedFunction, daysToGoNoString } from '../../../util/project_util';
 
 class ProjectShow extends React.Component {
@@ -13,10 +14,23 @@ class ProjectShow extends React.Component {
   }
 
   render() {
-    const { project } = this.props;
+    const { project, currentUser } = this.props;
+    if (!project.title) return null;
+
     const percentFunded = percentFundedFunction(project.funding_raised, project.funding_goal);
 
-    if (!project.title) return null;
+    let updateButton;
+    if (project.author && project.author.id === currentUser.id) {
+      updateButton = (
+        <Link className="update-button"
+          to={`/projects/${project.id}/edit`}>
+          Rethink your wish
+        </Link>
+      );
+    } else {
+      updateButton = "";
+    }
+
 
     return (
       <div className="project-show">
@@ -27,6 +41,9 @@ class ProjectShow extends React.Component {
           <div className="p-show-header">
             <h1>{project.title}</h1>
             <p>{project.short_blurb}</p>
+          </div>
+          <div className="p-show-update">
+            {updateButton}
           </div>
         </div>
         <div className="p-show-middle">

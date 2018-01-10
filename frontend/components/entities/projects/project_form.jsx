@@ -19,6 +19,12 @@ class ProjectForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount(){
+    if(this.props.match.params.projectId){
+      this.props.fetchProject(this.props.match.params.projectId)
+    }
+  }
+
   componentWillMount() {
     this.props.clearProjectErrors();
   }
@@ -26,13 +32,21 @@ class ProjectForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const project = Object.assign({}, this.state)
-    debugger
+    // debugger
     project['category_id'] = parseInt(project['category_id']);
     project['funding_goal'] = parseInt(project['funding_goal']);
     project['author_id'] = this.props.currentUser.id;
-    this.props.createProject(project).then( () => {
-      return this.props.history.push(`/projects/${this.props.project.id}`);
-    });
+
+    if (this.props.formType === 'new') {
+      this.props.createProject(project).then( () => {
+        return this.props.history.push(`/projects/${this.props.project.id}`);
+      });
+    } else {
+      this.props.updateProject(project).then( () => {
+        return this.props.history.push(`/projects/${this.props.project.id}`);
+      });
+    }
+
   }
 
   update(field) {
@@ -52,6 +66,9 @@ class ProjectForm extends React.Component {
   }
 
   render() {
+    // debugger
+
+    const text = this.props.formType === 'new' ? "Make a wish" : "Rethink your wish";
 
     return (
       <div className="new-project-container">
@@ -129,7 +146,6 @@ class ProjectForm extends React.Component {
                   placeholder="..."
                   value={this.state.description}
                   onChange={this.update('description')} >
-
                 </textarea>
               </div>
             </li>
@@ -145,7 +161,7 @@ class ProjectForm extends React.Component {
             </li>
           </ul>
           <button className="project-submit-button" onClick={this.handleSubmit}>
-            Make a wish
+            {text}
           </button>
           {this.renderErrors()}
         </form>

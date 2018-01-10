@@ -5,14 +5,15 @@
 }
 
 .p-show-top {
-  // background: pink;
   display: flex;
   .p-show-author {
     font-size: 13px;
     margin-top: 20px;
+    flex: 1;
   }
   .p-show-header {
-    margin-left: 50px;
+    margin-left: 10px;
+    flex: 5;
     h1 {
       font-size: 30px;
     }
@@ -20,6 +21,12 @@
       font-size: 16px;
       color: $color-navy;
     }
+  }
+  .p-show-update {
+    flex: 1;
+    align-self: center;
+    white-space: nowrap;
+    width: 100%;
   }
 }
 
@@ -49,23 +56,27 @@
     .p-show-info-item {
       margin-top: 14px;
     }
-    .back-button {
-      margin-top: 30px;
-      background-color: $color-green;
-      color: white;
-      font-weight: lighter;
-      font-size: 14px;
-      letter-spacing: 0.4px;
-      transition: all 0.25s ease-in-out;
-      width: 100%;
-      padding: 13px 0;
-      &:hover {
-        background-color: $color-dark-green3;
-        cursor: pointer;
-        transform: translateY(-1px);
-      }
-    }
   }
+}
+.back-button, .update-button {
+  margin-top: 30px;
+  background-color: $color-green;
+  color: white;
+  font-weight: lighter;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  padding: 13px 0;
+  &:hover {
+    background-color: $color-dark-green3;
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+}
+
+.update-button {
+  padding: 13px 20px;
 }
 
 .p-show-bottom {
