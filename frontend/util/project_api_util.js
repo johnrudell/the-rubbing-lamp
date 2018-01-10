@@ -12,18 +12,34 @@ export const fetchProject = id => {
   });
 };
 
-export const createProject = project => {
+export const createProject = formData => {
   return $.ajax({
     method: 'POST',
     url: 'api/projects',
-    data: {project}
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
   });
 };
+
+
+// createPost: function(formData) {
+//   $.ajax({
+//     dataType: 'json',
+//     data: formData,
+//     success: function(post) {
+//       PostActions.receivePost(post);
+//     }
+//   })
+// }
 
 export const updateProject = project => {
   return $.ajax({
     method: 'PATCH',
     url: `api/projects/${project.id}`,
+    processData: false,
+    contentType: false,
     data: {project}
   });
 };

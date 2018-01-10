@@ -47,6 +47,14 @@
   label {
     padding-bottom: 8px;
   }
+  div {
+    // background: pink;
+    .upload-image {
+      object-fit: contain;
+      height: 200px;
+      width: 200px;
+    }
+  }
   input, textarea {
     border: 0;
     outline: 0;

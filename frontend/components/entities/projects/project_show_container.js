@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { fetchProject } from '../../../actions/project_actions';
 import ProjectShow from './project_show';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    project: state.entities.project,
+    project: state.entities.projects[ownProps.match.params.projectId],
     currentUser: state.session.currentUser,
   };
 };

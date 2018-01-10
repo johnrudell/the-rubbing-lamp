@@ -5,22 +5,26 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      category_id: '0',
+      categoryId: "1",
       title: '',
-      short_blurb: '',
+      shortBlurb: '',
       deadline: '',
-      funding_goal: '',
+      fundingGoal: '',
       description: '',
-      img_url: '',
-      funding_raised: 0,
-      author_id: ''
+      fundingRaised: 0,
+      authorId: props.currentUser.id,
+      imageFile: null,
+      imageUrl: null,
     };
-
+    // debugger
+    // this.state = props.project;
+    // debugger
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   componentDidMount(){
-    if(this.props.match.params.projectId){
+    if (this.props.match.params.projectId) {
       this.props.fetchProject(this.props.match.params.projectId)
     }
   }
@@ -29,28 +33,83 @@ class ProjectForm extends React.Component {
     this.props.clearProjectErrors();
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const project = Object.assign({}, this.state)
+  componentWillReceiveProps(nextProps) {
     // debugger
-    project['category_id'] = parseInt(project['category_id']);
-    project['funding_goal'] = parseInt(project['funding_goal']);
-    project['author_id'] = this.props.currentUser.id;
+    if (nextProps.project && !this.props.project) {
+      this.setState(nextProps.project)
+    }
+  }
+
+  handleSubmit(e) {
+    // debugger
+    e.preventDefault();
+    const file = this.state.imageFile;
+
+    const formData = new FormData();
+
+    // remove unnecessary img_url column on backend db
+    formData.append("project[image]", file)
+    formData.append("project[img_url]", file)
+
+    // formData.append("project[]", (this.state.categoryId))
+
+    formData.append("project[category_id]", parseInt(this.state.categoryId))
+    formData.append("project[title]", this.state.title)
+    formData.append("project[short_blurb]", this.state.shortBlurb)
+    formData.append("project[deadline]", this.state.deadline)
+    formData.append("project[funding_goal]", parseInt(this.state.fundingGoal))
+    formData.append("project[description]", this.state.description)
+    formData.append("project[funding_raised]", this.state.fundingRaised)
+    formData.append("project[author_id]", this.state.authorId)
+    // formData.append("project[image_file]", this.state.imageFile)
+
+    debugger
 
     if (this.props.formType === 'new') {
-      this.props.createProject(project).then( () => {
-        return this.props.history.push(`/projects/${this.props.project.id}`);
+      this.props.createProject(formData).then( (project) => {
+        return this.props.history.push(`/projects/${project.id}`);
       });
     } else {
-      this.props.updateProject(project).then( () => {
-        return this.props.history.push(`/projects/${this.props.project.id}`);
+      this.props.updateProject(formData).then( (project) => {
+        return this.props.history.push(`/projects/${project.id}`);
       });
     }
 
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.target.value });
+    // debugger
+    return e => {
+      // debugger
+      if (field === "categoryId") {
+        this.setState({ [field]: parseInt(e.target.value) })
+      } else {
+        this.setState({ [field]: e.target.value })
+      }
+
+    };
+  }
+
+  updateFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onloadend = () => {
+      this.setState({
+          imageFile: file,
+          imageUrl: fileReader.result
+      });
+    }
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    } else {
+      this.setState({
+          imageUrl: "",
+          imageFile: null
+      });
+    }
+
   }
 
   renderErrors() {
@@ -81,8 +140,7 @@ class ProjectForm extends React.Component {
                 <label>Choose a category:</label>
                 <select className="category-dropdown"
                   value={this.state.category_id}
-                  onChange={this.update('category_id')} >
-                  <option disabled value="0">Select a category</option>
+                  onChange={this.update('categoryId')} >
                   <option value="1">Arts</option>
                   <option value="2">Music</option>
                   <option value="3">Games</option>
@@ -110,7 +168,7 @@ class ProjectForm extends React.Component {
                 <label>Give your project a short blurb:</label>
                 <input className="form-input-field"
                   value={this.state.short_blurb}
-                  onChange={this.update('short_blurb')}
+                  onChange={this.update('shortBlurb')}
                   placeholder="short blurb..." />
               </div>
             </li>
@@ -133,7 +191,7 @@ class ProjectForm extends React.Component {
                   <input className="form-input-field"
                     type="number"
                     value={this.state.funding_goal}
-                    onChange={this.update('funding_goal')}
+                    onChange={this.update('fundingGoal')}
                     placeholder="1000" />
                 </div>
               </div>
@@ -153,10 +211,13 @@ class ProjectForm extends React.Component {
               <div className="list-number">7.</div>
               <div className="input-container">
                 <label>Choose an image:</label>
-                <input className="form-input-field"
-                  value={this.state.img_url}
-                  onChange={this.update('img_url')}
-                  placeholder="..." />
+                <div>
+                  <img className="upload-image"
+                    src={this.state.imageUrl} />
+                </div>
+                <input
+                  type="file"
+                  onChange={this.updateFile} />
               </div>
             </li>
           </ul>
@@ -169,6 +230,10 @@ class ProjectForm extends React.Component {
     );
   }
 
+  // <input className="form-input-field"
+  //   value={this.state.img_url}
+  //   onChange={this.update('img_url')}
+  //   placeholder="..." />
 }
 
 export default ProjectForm;

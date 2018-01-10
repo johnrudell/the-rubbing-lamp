@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { percentFundedFunction, daysToGoNoString } from '../../../util/project_util';
 
 class ProjectShow extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  // }
 
   componentDidMount() {
     this.props.fetchProject(this.props.match.params.projectId);
@@ -15,12 +15,13 @@ class ProjectShow extends React.Component {
 
   render() {
     const { project, currentUser } = this.props;
-    if (!project.title) return null;
+
+    if (!project) return null;
 
     const percentFunded = percentFundedFunction(project.funding_raised, project.funding_goal);
 
     let updateButton;
-    if (project.author && project.author.id === currentUser.id) {
+    if (currentUser && currentUser.id === project.author.id) {
       updateButton = (
         <Link className="update-button"
           to={`/projects/${project.id}/edit`}>

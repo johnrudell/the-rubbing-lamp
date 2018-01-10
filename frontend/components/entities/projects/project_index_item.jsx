@@ -13,6 +13,7 @@ class ProjectIndexItem extends React.Component {
     return (
       <li className="project-list-item">
         <Link to={`/projects/${project.id}`}>
+          <img src={project.img_url} />
           <img className="project-img" src={project.img_url} />
         </Link>
         <div className="info-container">

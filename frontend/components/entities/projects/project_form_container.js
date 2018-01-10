@@ -8,14 +8,11 @@ import {
 import ProjectForm from './project_form';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   let project;
   let formType = "new";
   if (ownProps.match.path.includes('edit')) {
     project = state.entities.projects[ownProps.match.params.projectId];
     formType = "edit";
-  } else {
-    project = state.entities.projects;
   }
 
   return {
