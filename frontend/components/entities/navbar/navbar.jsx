@@ -10,10 +10,10 @@ const Navbar = ({ currentUser, logout }) => {
   return (
     <nav className="row header navbar">
       <ul className="nav-left nav-list">
-        <li>
+        <li className="nav-outer-link">
           <Link className="decolor-link" to="/discover">Explore</Link>
         </li>
-        <li className="placeholder">
+        <li>
           <Link className="decolor-link" to="/project/new">Make a wish</Link>
         </li>
       </ul>
@@ -21,11 +21,11 @@ const Navbar = ({ currentUser, logout }) => {
       <Link className="nav-center" to="/">The Rubbing Lamp</Link>
 
       <ul className="nav-right nav-list">
-        <li className="placeholder">
+        <li className="search">
           <span>Search</span>
           <i className="fa fa-search" aria-hidden="true"></i>
         </li>
-        <li>
+        <li className="nav-outer-link">
           {session}
         </li>
       </ul>

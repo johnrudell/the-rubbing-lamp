@@ -10,19 +10,27 @@
 
 .nav-list {
   display: flex;
-  * {
+  li {
     padding: 0 8px;
+    width: 81px;
     &:hover {
       color: $color-dark-green1;
       cursor: pointer;
     }
   }
+  .search {
+    text-align: right;
+  }
+  .nav-outer-link {
+    width: 54px;
+    &:first-child {
+      padding-right: 0;
+    }
+    &:last-child {
+      padding-left: 0;
+    }
+  }
 }
-
-// .nav-left {
-//   li {
-//   }
-// }
 
 .nav-center {
   font-family: 'Chicle', cursive;
@@ -42,4 +50,9 @@
       }
     }
   }
+}
+
+.session-button:hover {
+  color: $color-dark-green1;
+  cursor: pointer;
 }

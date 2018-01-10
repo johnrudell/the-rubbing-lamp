@@ -3,10 +3,10 @@ import { fetchCategory } from '../../../actions/category_actions';
 import { selectCategoryProjects } from '../../../reducers/selectors';
 import CategoryShow from './category_show';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   // debugger
   // const category = state.entities.categories[ownProps.match.params.categoryId] || { project_ids: [] };
-  const category = state.entities.categories[state.ui.categoryDisplay];
+  const category = state.entities.categories[ownProps.match.params.categoryId] || state.entities.categories[1];
 
   return {
     category,

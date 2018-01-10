@@ -1,5 +1,6 @@
 import React from 'react';
 import { percentFundedFunction } from '../../../util/project_util';
+import { Link } from 'react-router-dom';
 
 class CategoryShowItem extends React.Component {
 
@@ -9,9 +10,13 @@ class CategoryShowItem extends React.Component {
 
     return (
       <li className="preview-project">
-        <img className="preview-img" src={project.img_url} />
+        <Link to={`/projects/${project.id}`}>
+          <img className="preview-img" src={project.img_url} />
+        </Link>
         <div className="preview-info-container">
-          <div className="preview-title color-green-hover">{project.title}</div>
+          <Link className="preview-title color-green-hover" to={`/projects/${project.id}`}>
+            {project.title}
+          </Link>
           <div className="preview-percent">{percentFunded}% funded</div>
         </div>
       </li>

@@ -12,9 +12,13 @@ class ProjectIndexItem extends React.Component {
 
     return (
       <li className="project-list-item">
-        <img className="project-img" src={project.img_url} />
+        <Link to={`/projects/${project.id}`}>
+          <img className="project-img" src={project.img_url} />
+        </Link>
         <div className="info-container">
-          <div className="project-title">{project.title}</div>
+          <Link className="project-title" to={`/projects/${project.id}`}>
+            {project.title}
+          </Link>
           <div className="project-author">by {project.author.username}</div>
           <Line className="progress-bar"
             percent={percentFunded}

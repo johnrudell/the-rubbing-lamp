@@ -14,10 +14,10 @@ export const receiveProjects = projects => {
   };
 };
 
-export const receiveProject = payload => {
+export const receiveProject = project => {
   return {
     type: RECEIVE_PROJECT,
-    payload
+    project
   };
 };
 
@@ -61,9 +61,9 @@ export const createProject = (project) => {
   return dispatch => {
     return APIUtil.createProject(project).then(project => {
       return dispatch(receiveProject(project));
-    }), err => {
+    }, err => {
       return dispatch(receiveProjectErrors(err.responseJSON));
-    };
+    });
   };
 };
 
@@ -71,9 +71,9 @@ export const updateProject = (project) => {
   return dispatch => {
     return APIUtil.updateProject(project).then(project => {
       return dispatch(receiveProject(project));
-    }), err => {
+    }, err => {
       return dispatch(receiveProjectErrors(err.responseJSON));
-    };
+    });
   };
 };
 

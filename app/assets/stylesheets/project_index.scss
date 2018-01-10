@@ -35,6 +35,9 @@
   .project-title {
     font-size: 20px;
     color: $color-black1;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .project-author {
     padding: 10px 0;

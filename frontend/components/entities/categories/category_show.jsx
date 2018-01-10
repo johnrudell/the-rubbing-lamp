@@ -2,15 +2,24 @@ import React from 'react';
 import ProjectIndexItem from '../projects/project_index_item';
 import { percentFundedFunction } from '../../../util/project_util';
 import CategoryShowItem from './category_show_item';
+import { Link } from 'react-router-dom';
 
 class CategoryShow extends React.Component {
   componentDidMount() {
-    this.props.fetchCategory(this.props.match.params.categoryId);
+    if (!this.props.match.params.categoryId) {
+      this.props.fetchCategory(1);
+    } else {
+      this.props.fetchCategory(this.props.match.params.categoryId);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.categoryId !== nextProps.match.params.categoryId) {
-      this.props.fetchCategory(nextProps.match.params.categoryId);
+      if (!this.props.match.params.categoryId) {
+        this.props.fetchCategory(1);
+      } else {
+        this.props.fetchCategory(nextProps.match.params.categoryId);
+      }
     }
   }
 
@@ -38,14 +47,14 @@ class CategoryShow extends React.Component {
       const percentFunded = percentFundedFunction(recentProject.funding_raised, recentProject.funding_goal);
 
       const featuredProject = (
-        <div className="featured-project">
+        <Link className="featured-project" to={`/projects/${recentProject.id}`}>
           <img className="featured-img" src={recentProject.img_url} />
           <div className="featured-info-container">
             <div className="featured-title">{recentProject.title}</div>
             <div className="featured-author">by {recentProject.author.username}</div>
             <div className="featured-percent">{percentFunded}% funded</div>
           </div>
-        </div>
+        </Link>
       );
 
       const projectPreview = projects.map(project => {

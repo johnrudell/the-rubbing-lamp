@@ -15,6 +15,8 @@ import CategoryIndexContainer from './entities/categories/category_index_contain
 import CategoryShowContainer from './entities/categories/category_show_container';
 import ProjectIndexContainer from './entities/projects/project_index_container';
 import ProjectFormContainer from './entities/projects/project_form_container';
+import ProjectShowContainer from './entities/projects/project_show_container';
+
 
 const App = () => (
   <div className="box">
@@ -25,6 +27,7 @@ const App = () => (
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <Route exact path="/discover" component={ProjectIndexContainer} />
+        <Route exact path="/projects/:projectId" component={ProjectShowContainer} />
         <ProtectedRoute exact path="/project/new" component={ProjectFormContainer} />
         <Route path="/" component={CategoryIndexContainer} />
 

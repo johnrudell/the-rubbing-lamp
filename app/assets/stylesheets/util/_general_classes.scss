@@ -24,21 +24,21 @@
 
 /* Green links with underline */
 .color-green-hover {
-  // color: $color-black1;
-  // &:hover {
-  //   text-decoration: underline;
-  //   color: $color-dark-green1;
-  //   cursor: pointer;
-  // }
+  color: $color-black1;
+  &:hover {
+    text-decoration: underline;
+    color: $color-dark-green1;
+    cursor: pointer;
+  }
 }
 
-.placeholder {
-  visibility: hidden;
-}
-
-.placeholder-splash {
-  flex-direction: row;
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
+// .placeholder {
+//   visibility: hidden;
+// }
+//
+// .placeholder-splash {
+//   flex-direction: row;
+//   object-fit: contain;
+//   width: 100%;
+//   height: 100%;
+// }

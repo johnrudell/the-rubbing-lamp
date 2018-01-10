@@ -37,9 +37,9 @@ export const signup = user => dispatch => {
 export const login = user => dispatch => {
   return APIUtil.login(user).then(user => {
     return dispatch(receiveCurrentUser(user));
-  }), err => {
+  }, err => {
     return dispatch(receiveSessionErrors(err.responseJSON));
-  };
+  });
 };
 
 export const logout = () => dispatch => {

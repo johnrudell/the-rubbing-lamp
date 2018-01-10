@@ -1,0 +1,114 @@
+@import "./util/variables";
+
+.new-project-container {
+  background-color: white;
+  display: flex;
+  background: url("https://www.vexels.com/blog/wp-content/uploads/2011/05/abstract-colorful-background-6-eps10.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.new-project-form {
+  // border: 1px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 90px auto;
+  background-color: white;
+}
+
+.new-project-header {
+  font-size: 53px;
+  color: $color-link-blue;
+  font-weight: 500;
+  margin-left: 60px;
+  margin-bottom: 40px;
+}
+
+.input-list {
+  li {
+    display: flex;
+    .list-number {
+      font-size: 13px;
+      margin-top: 5px;
+      padding-right: 50px;
+      font-weight: 700;
+    }
+  }
+}
+
+.input-container {
+  color: $color-navy-light;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  font-size: 17px;
+  label {
+    padding-bottom: 8px;
+  }
+  input, textarea {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid $color-black1;
+    font-size: 15px;
+    padding-bottom: 5px;
+    letter-spacing: 0.5px;
+    font-family: 'Muli', sans-serif;
+    color: $color-navy-light;
+    width: 375px;
+    &:focus {
+      border-bottom: 1px solid $color-green;
+    }
+  }
+}
+
+.pretext-input {
+  display: flex;
+  span {
+    font-size: 16px;
+    color: $color-black1;
+  }
+}
+
+.category-dropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  line-height: normal;
+  position: relative;
+  font-size: 15px;
+  // background-repeat: no-repeat;
+  background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat 120px center;
+  background-position: right 10px top 50%;
+  padding: 5px;
+  width: 170px;
+  &:focus {
+    outline: none;
+    border-color: $color-green;
+  }
+  &:hover {
+    border-color: $color-link-blue;
+  }
+  option {
+    color: $color-black1;
+    &:first-child {
+      color: $color-navy-light;
+    }
+  }
+}
+
+.project-submit-button {
+  background-color: $color-green4;
+  color: white;
+  text-align: center;
+  margin: 40px;
+  margin-left: 60px;
+  padding: 10px 30px 15px;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    background-color: $color-dark-green3;
+    cursor: pointer;
+  }
+}

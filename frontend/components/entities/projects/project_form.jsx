@@ -5,18 +5,18 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      category_id: 0,
+      category_id: '0',
       title: '',
       short_blurb: '',
       deadline: '',
-      funding_goal: 1,
+      funding_goal: '',
       description: '',
       img_url: '',
       funding_raised: 0,
+      author_id: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
   }
 
   componentWillMount() {
@@ -26,7 +26,13 @@ class ProjectForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const project = Object.assign({}, this.state)
-    this.props.createProject(project);
+    debugger
+    project['category_id'] = parseInt(project['category_id']);
+    project['funding_goal'] = parseInt(project['funding_goal']);
+    project['author_id'] = this.props.currentUser.id;
+    this.props.createProject(project).then( () => {
+      return this.props.history.push(`/projects/${this.props.project.id}`);
+    });
   }
 
   update(field) {
@@ -50,28 +56,30 @@ class ProjectForm extends React.Component {
     return (
       <div className="new-project-container">
         <form className="new-project-form">
-          <h1 className="new-project-header">Get started</h1>
+          <h1 className="new-project-header">Rub the lamp</h1>
           <ul className="input-list">
             <li>
               <div className="list-number">1.</div>
-              <div className="new-project-category">
+              <div className="input-container">
                 <label>Choose a category:</label>
-                <select className="category-dropdown" value={this.state.category_id} onChange={this.update('category_id')}>
-                  <option value="arts">Arts</option>
-                  <option value="comics">Comics</option>
-                  <option value="film">Film & Video</option>
-                  <option value="food">Food</option>
-                  <option value="games">Games</option>
-                  <option value="music">Music</option>
-                  <option value="photography">Photography</option>
-                  <option value="publishing">Publishing</option>
-                  <option value="technology">Technology</option>
+                <select className="category-dropdown"
+                  value={this.state.category_id}
+                  onChange={this.update('category_id')} >
+                  <option disabled value="0">Select a category</option>
+                  <option value="1">Arts</option>
+                  <option value="2">Music</option>
+                  <option value="3">Games</option>
+                  <option value="4">Design & Tech</option>
+                  <option value="5">Food & Craft</option>
+                  <option value="6">Publishing</option>
+                  <option value="7">Film</option>
+                  <option value="8">Comics & Illustration</option>
                 </select>
               </div>
             </li>
             <li>
               <div className="list-number">2.</div>
-              <div className="new-project-title">
+              <div className="input-container">
                 <label>Give your project a title:</label>
                 <input className="form-input-field"
                   value={this.state.title}
@@ -81,7 +89,7 @@ class ProjectForm extends React.Component {
             </li>
             <li>
               <div className="list-number">3.</div>
-              <div className="new-project-blurb">
+              <div className="input-container">
                 <label>Give your project a short blurb:</label>
                 <input className="form-input-field"
                   value={this.state.short_blurb}
@@ -91,37 +99,43 @@ class ProjectForm extends React.Component {
             </li>
             <li>
               <div className="list-number">4.</div>
-              <div className="new-project-deadline">
+              <div className="input-container">
                 <label>When will your funding end?</label>
                 <input className="form-input-field"
+                  type="date"
                   value={this.state.deadline}
-                  onChange={this.update('deadline')}
-                  placeholder="01/01/2018" />
+                  onChange={this.update('deadline')} />
               </div>
             </li>
             <li>
               <div className="list-number">5.</div>
-              <div className="new-project-goal">
+              <div className="input-container">
                 <label>How much do you hope to raise?</label>
-                <input className="form-input-field"
-                  value={this.state.funding_goal}
-                  onChange={this.update('funding_goal')}
-                  placeholder="$1000" />
+                <div className="pretext-input">
+                  <span>$ </span>
+                  <input className="form-input-field"
+                    type="number"
+                    value={this.state.funding_goal}
+                    onChange={this.update('funding_goal')}
+                    placeholder="1000" />
+                </div>
               </div>
             </li>
             <li>
               <div className="list-number">6.</div>
-              <div className="new-project-description">
+              <div className="input-container">
                 <label>Describe your project:</label>
-                <input className="form-input-field"
+                <textarea rows="6" cols="40"
+                  placeholder="..."
                   value={this.state.description}
-                  onChange={this.update('description')}
-                  placeholder="..." />
+                  onChange={this.update('description')} >
+
+                </textarea>
               </div>
             </li>
             <li>
               <div className="list-number">7.</div>
-              <div className="new-project-img">
+              <div className="input-container">
                 <label>Choose an image:</label>
                 <input className="form-input-field"
                   value={this.state.img_url}
@@ -131,7 +145,7 @@ class ProjectForm extends React.Component {
             </li>
           </ul>
           <button className="project-submit-button" onClick={this.handleSubmit}>
-            Create Project
+            Make a wish
           </button>
           {this.renderErrors()}
         </form>

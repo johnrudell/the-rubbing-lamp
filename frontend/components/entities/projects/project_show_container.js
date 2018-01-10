@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
-// import { fetchProjects } from '../../../actions/project_actions';
-// import { selectProjects } from '../../../reducers/selectors';
+import { fetchProject } from '../../../actions/project_actions';
 import ProjectShow from './project_show';
 
 const mapStateToProps = state => {
   return {
-
+    project: state.entities.project,
+    currentUser: state.session.currentUser,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    fetchProject: id => dispatch(fetchProject(id)),
   };
 };
 
