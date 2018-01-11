@@ -105,15 +105,17 @@ class ProjectForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <ul className="project-errors">
-        {this.props.errors.map((error, idx) => (
-          <li key={idx}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    )
+    if (this.props.errors) {
+      return (
+        <ul className="project-errors">
+          {this.props.errors.map((error, idx) => (
+            <li key={idx}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
