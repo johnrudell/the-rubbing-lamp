@@ -3,11 +3,14 @@
 .new-project-container {
   background-color: white;
   display: flex;
-  background: url("https://www.vexels.com/blog/wp-content/uploads/2011/05/abstract-colorful-background-6-eps10.jpg") no-repeat center center;
+  background: url("https://www.hdwallpapers.in/walls/lg_g3_smoke_colors-wide.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  // -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  // -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  // box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 .new-project-form {
@@ -47,14 +50,6 @@
   label {
     padding-bottom: 8px;
   }
-  div {
-    // background: pink;
-    .upload-image {
-      object-fit: contain;
-      height: 200px;
-      width: 200px;
-    }
-  }
   input, textarea {
     border: 0;
     outline: 0;
@@ -68,6 +63,46 @@
     width: 375px;
     &:focus {
       border-bottom: 1px solid $color-green;
+    }
+  }
+  .upload-image-container {
+    width: 375px;
+    height: 200px;
+    // border: 1px dotted $color-navy-light;
+    // border-radius: 10px;
+    position: relative;
+    display: flex;
+    transition: all 0.25s ease-in-out;
+    .upload-label {
+      position: absolute;
+      justify-content: center;
+      align-self: center;
+      width: 375px;
+      text-align: center;
+    }
+    .upload-image {
+      object-fit: contain;
+      width: 375px;
+      height: 200px;
+      z-index: 2;
+    }
+    .upload-image-button {
+      position: absolute;
+      opacity: 0;
+      left: 0;
+      width: 375px;
+      height: 200px;
+      border: none;
+      z-index: 3;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &:hover {
+      font-size: 20px;
+      font-weight: 200;
+      background-color: $color-green;
+      color: white;
     }
   }
 }
@@ -87,7 +122,6 @@
   line-height: normal;
   position: relative;
   font-size: 15px;
-  // background-repeat: no-repeat;
   background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat 120px center;
   background-position: right 10px top 50%;
   padding: 5px;

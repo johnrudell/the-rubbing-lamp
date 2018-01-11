@@ -10,7 +10,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    # debugger
     @project = Project.new(project_params)
 
     if @project.save
@@ -21,7 +20,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    # debugger
     @project = Project.find(params[:id])
 
     if @project.update(project_params)
@@ -41,6 +39,6 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :img_url, :image, :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id)
+    params.require(:project).permit(:title, :image, :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id)
   end
 end

@@ -1,20 +1,28 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
 
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
+
   render () {
+
+    const categories = this.props.categories.map( category => {
+      return (
+        <li className="color-green-hover" key={category.id}>
+          <Link className="decolor-link" to={`/categories/${category.id}/all`}>
+            {category.name}
+          </Link>
+        </li>
+      );
+    });
+
     return (
       <footer className="row footer footer-container">
-        <ul className="placeholder footer-category-list">
-          <li className="color-green-hover">Arts</li>
-          <li className="color-green-hover">Comics & Illustration</li>
-          <li className="color-green-hover">Design & Tech</li>
-          <li className="color-green-hover">Film</li>
-          <li className="color-green-hover">Food & Craft</li>
-          <li className="color-green-hover">Games</li>
-          <li className="color-green-hover">Music</li>
-          <li className="color-green-hover">Publishing</li>
+        <ul className="footer-category-list">
+          {categories}
         </ul>
 
         <div className="copyright">

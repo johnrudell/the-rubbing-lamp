@@ -16,9 +16,7 @@ class ProjectForm extends React.Component {
       imageFile: null,
       imageUrl: null,
     };
-    // debugger
-    // this.state = props.project;
-    // debugger
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
   }
@@ -47,11 +45,7 @@ class ProjectForm extends React.Component {
 
     const formData = new FormData();
 
-    // remove unnecessary img_url column on backend db
     formData.append("project[image]", file)
-    formData.append("project[img_url]", file)
-
-    // formData.append("project[]", (this.state.categoryId))
 
     formData.append("project[category_id]", parseInt(this.state.categoryId))
     formData.append("project[title]", this.state.title)
@@ -62,8 +56,6 @@ class ProjectForm extends React.Component {
     formData.append("project[funding_raised]", this.state.fundingRaised)
     formData.append("project[author_id]", this.state.authorId)
     // formData.append("project[image_file]", this.state.imageFile)
-
-    debugger
 
     if (this.props.formType === 'new') {
       this.props.createProject(formData).then( (project) => {
@@ -199,7 +191,7 @@ class ProjectForm extends React.Component {
             <li>
               <div className="list-number">6.</div>
               <div className="input-container">
-                <label>Describe your project:</label>
+                <label>Tell your story:</label>
                 <textarea rows="6" cols="40"
                   placeholder="..."
                   value={this.state.description}
@@ -210,14 +202,15 @@ class ProjectForm extends React.Component {
             <li>
               <div className="list-number">7.</div>
               <div className="input-container">
-                <label>Choose an image:</label>
-                <div>
+
+                <div className="upload-image-container">
+                  <label className="upload-label">Conjure an image</label>
                   <img className="upload-image"
                     src={this.state.imageUrl} />
+                  <input className="upload-image-button"
+                    type="file"
+                    onChange={this.updateFile} />
                 </div>
-                <input
-                  type="file"
-                  onChange={this.updateFile} />
               </div>
             </li>
           </ul>
@@ -230,10 +223,6 @@ class ProjectForm extends React.Component {
     );
   }
 
-  // <input className="form-input-field"
-  //   value={this.state.img_url}
-  //   onChange={this.update('img_url')}
-  //   placeholder="..." />
 }
 
 export default ProjectForm;

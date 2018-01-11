@@ -29,3 +29,9 @@ export const daysToGoNoString = (end_date) => {
 export const percentFundedFunction = (raised, goal) => {
   return Math.floor((raised / goal) * 100);
 };
+
+
+// add commas to big numbers
+export const numberWithCommas = num => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

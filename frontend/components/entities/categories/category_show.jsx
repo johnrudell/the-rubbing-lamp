@@ -74,7 +74,12 @@ class CategoryShow extends React.Component {
           <ul className="preview-project-list">
             <h2 className="featured-header">{category.name}</h2>
             {projectPreview}
-            <button className="placeholder view-all-button">View All</button>
+            <div className="view-all-button">
+              <Link className="decolor-link" to={`/categories/${category.id}/all`}>
+                View All
+              </Link>
+            </div>
+
           </ul>
         </div>
       );

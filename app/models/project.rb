@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  title          :string           not null
-#  img_url        :string           not null
 #  short_blurb    :string           not null
 #  description    :text             not null
 #  funding_goal   :integer          not null
@@ -18,7 +17,7 @@
 
 class Project < ApplicationRecord
   validates :title, presence: true, uniqueness: true
-  validates :img_url, :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id, presence: true
+  validates :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id, presence: true
 
   belongs_to :author,
     foreign_key: :author_id,

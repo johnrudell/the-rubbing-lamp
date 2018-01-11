@@ -1,13 +1,9 @@
 import React from 'react';
 import { Line, Circle } from 'rc-progress';
 import { Link } from 'react-router-dom';
-import { percentFundedFunction, daysToGoNoString } from '../../../util/project_util';
+import { percentFundedFunction, daysToGoNoString, numberWithCommas } from '../../../util/project_util';
 
 class ProjectShow extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  // }
 
   componentDidMount() {
     this.props.fetchProject(this.props.match.params.projectId);
@@ -48,7 +44,7 @@ class ProjectShow extends React.Component {
           </div>
         </div>
         <div className="p-show-middle">
-          <img className="p-show-img" src={project.img_url} />
+          <img className="p-show-img" src={project.image} />
           <div className="p-show-info">
             <Line className="progress-bar"
               percent={percentFunded}
@@ -58,7 +54,7 @@ class ProjectShow extends React.Component {
               trailColor="#e8e8e8"
               strokeColor="#0f7262" />
             <div className="p-show-funding p-show-info-item">${project.funding_raised}</div>
-            <p>pledged of ${project.funding_goal} goal</p>
+            <p>pledged of ${numberWithCommas(project.funding_goal)} goal</p>
             <div className="p-show-info-item">59</div>
             <p>backers</p>
             <div className="p-show-info-item">{daysToGoNoString(project.deadline)}</div>

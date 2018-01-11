@@ -11,7 +11,7 @@ class CategoryShowItem extends React.Component {
     return (
       <li className="preview-project">
         <Link to={`/projects/${project.id}`}>
-          <img className="preview-img" src={project.img_url} />
+          <img className="preview-img" src={project.image} />
         </Link>
         <div className="preview-info-container">
           <Link className="preview-title color-green-hover" to={`/projects/${project.id}`}>

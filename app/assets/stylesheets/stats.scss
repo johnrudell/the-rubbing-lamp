@@ -1,0 +1,28 @@
+@import "./util/variables";
+
+.stats-container {
+  border-bottom: 1px solid $color-black1;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat {
+  border-right: 1px solid $color-grey3;
+  width: 100%;
+  padding: 25px;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.s-top {
+  color: $color-navy-light;
+  font-size: 12px;
+}
+
+.s-bottom {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 2px;
+}

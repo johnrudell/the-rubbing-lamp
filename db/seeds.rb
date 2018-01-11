@@ -54,7 +54,6 @@ project1 = Project.create(
   deadline: "03/01/2018",
   funding_raised: 5000,
   category_id: category1.id,
-  img_url: 'https://img00.deviantart.net/daea/i/2010/145/9/8/space_dance_by_diamantsoft.jpg'
 )
 
 project2 = Project.create(
@@ -66,7 +65,6 @@ project2 = Project.create(
   deadline: "01/03/2018",
   funding_raised: 1500,
   category_id: category4.id,
-  img_url: 'https://s-i.huffpost.com/gen/3277092/images/n-GRADUATION-CEREMONY-628x314.jpg'
 )
 
 project3 = Project.create(
@@ -78,7 +76,6 @@ project3 = Project.create(
   deadline: "20/01/2018",
   funding_raised: 0,
   category_id: category3.id,
-  img_url: 'https://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
 )
 
 project4 = Project.create(
@@ -90,7 +87,6 @@ project4 = Project.create(
   deadline: "12/01/2018",
   funding_raised: 2,
   category_id: category5.id,
-  img_url: 'https://notablelife.com/media/2015/03/xmkpspthnokaty_perry_last_friday_night_video_young_party_dance_company_joy_54442_1920x1200.jpg'
 )
 
 project5 = Project.create(
@@ -102,7 +98,6 @@ project5 = Project.create(
   deadline: "24/02/2018",
   funding_raised: 2600,
   category_id: category1.id,
-  img_url: 'http://netdoctor.cdnds.net/17/02/980x490/landscape-1484214717-heart-shaped-snowball.jpg'
 )
 
 project6 = Project.create(
@@ -114,5 +109,4 @@ project6 = Project.create(
   deadline: "24/12/2018",
   funding_raised: 35000,
   category_id: category1.id,
-  img_url: 'https://img00.deviantart.net/8736/i/2012/171/8/0/paint_me_by_aheathphoto-d548ekg.jpg'
 )

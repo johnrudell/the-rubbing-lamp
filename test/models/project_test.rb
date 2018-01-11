@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  title          :string           not null
-#  img_url        :string           not null
 #  short_blurb    :string           not null
 #  description    :text             not null
 #  funding_goal   :integer          not null

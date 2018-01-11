@@ -20,7 +20,6 @@ class CategoryIndex extends React.Component {
       );
     });
 
-    // <img className="placeholder-splash" src="https://images.pexels.com/photos/220067/pexels-photo-220067.jpeg"></img>
     return (
       <div className="main-content">
         <ul className="category-index">

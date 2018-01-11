@@ -9,6 +9,11 @@
   font-size: 22px;
 }
 
+.project-index-category {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
 .project-index-list {
   display: flex;
   flex-wrap: wrap;
@@ -59,9 +64,15 @@
   .project-category {
     margin: 11px 0;
     text-decoration: underline;
-    &:hover {
-      color: $color-black1;
-      cursor: pointer;
+    .project-category-link {
+      color: $color-navy;
+      &:visited {
+        color: $color-navy;
+      }
+      &:hover {
+        color: $color-black1;
+        cursor: pointer;
+      }
     }
   }
 }
