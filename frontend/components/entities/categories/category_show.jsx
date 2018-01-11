@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 class CategoryShow extends React.Component {
   componentDidMount() {
     if (!this.props.match.params.categoryId) {
-      this.props.fetchCategory(1);
+      return null;
     } else {
+
       this.props.fetchCategory(this.props.match.params.categoryId);
     }
   }
@@ -16,7 +17,7 @@ class CategoryShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.categoryId !== nextProps.match.params.categoryId) {
       if (!this.props.match.params.categoryId) {
-        this.props.fetchCategory(1);
+        return null;
       } else {
         this.props.fetchCategory(nextProps.match.params.categoryId);
       }
@@ -58,10 +59,12 @@ class CategoryShow extends React.Component {
       );
 
       const projectPreview = projects.map(project => {
-        if (project.id !== recentProject.id) {
-          return (
-            <CategoryShowItem key={project.id} project={project} />
-          );
+        if (!project || !recentProject) {
+          return null;
+        } else {
+          if (project.id !== recentProject.id) {
+            return <CategoryShowItem key={project.id} project={project} />;
+          }
         }
       });
 

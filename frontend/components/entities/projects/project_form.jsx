@@ -5,7 +5,7 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      categoryId: "1",
+      categoryId: 1,
       title: '',
       shortBlurb: '',
       deadline: '',
@@ -13,8 +13,8 @@ class ProjectForm extends React.Component {
       description: '',
       fundingRaised: 0,
       authorId: props.currentUser.id,
-      imageFile: null,
-      imageUrl: null,
+      imageFile: '',
+      imageUrl: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +22,7 @@ class ProjectForm extends React.Component {
   }
 
   componentDidMount(){
+    this.props.fetchCategories();
     if (this.props.match.params.projectId) {
       this.props.fetchProject(this.props.match.params.projectId)
     }
@@ -32,8 +33,9 @@ class ProjectForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger
+
     if (nextProps.project && !this.props.project) {
+      debugger
       this.setState(nextProps.project)
     }
   }
@@ -47,7 +49,7 @@ class ProjectForm extends React.Component {
 
     formData.append("project[image]", file)
 
-    formData.append("project[category_id]", parseInt(this.state.categoryId))
+    formData.append("project[category_id]", this.state.categoryId)
     formData.append("project[title]", this.state.title)
     formData.append("project[short_blurb]", this.state.shortBlurb)
     formData.append("project[deadline]", this.state.deadline)
@@ -119,10 +121,12 @@ class ProjectForm extends React.Component {
   }
 
   render() {
-    // debugger
-
     const text = this.props.formType === 'new' ? "Make a wish" : "Rethink your wish";
 
+    const categories = this.props.categories.map( category => {
+      return <option key={category.id} value={category.id}>{category.name}</option>;
+    });
+    // debugger
     return (
       <div className="new-project-container">
         <form className="new-project-form">
@@ -135,14 +139,7 @@ class ProjectForm extends React.Component {
                 <select className="category-dropdown"
                   value={this.state.category_id}
                   onChange={this.update('categoryId')} >
-                  <option value="1">Arts</option>
-                  <option value="2">Music</option>
-                  <option value="3">Games</option>
-                  <option value="4">Design & Tech</option>
-                  <option value="5">Food & Craft</option>
-                  <option value="6">Publishing</option>
-                  <option value="7">Film</option>
-                  <option value="8">Comics & Illustration</option>
+                  {categories}
                 </select>
               </div>
             </li>
@@ -216,10 +213,10 @@ class ProjectForm extends React.Component {
               </div>
             </li>
           </ul>
+          {this.renderErrors()}
           <button className="project-submit-button" onClick={this.handleSubmit}>
             {text}
           </button>
-          {this.renderErrors()}
         </form>
       </div>
     );

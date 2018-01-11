@@ -3,9 +3,11 @@ import {
   createProject,
   fetchProject,
   updateProject,
-  clearProjectErrors
+  clearProjectErrors,
 } from '../../../actions/project_actions';
+import { fetchCategories } from '../../../actions/category_actions';
 import ProjectForm from './project_form';
+import { selectCategories } from '../../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   let project;
@@ -19,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.session.currentUser,
     errors: state.errors.project,
     project,
-    formType
+    formType,
+    categories: selectCategories(state),
   };
 };
 
@@ -29,6 +32,7 @@ const mapDispatchToProps = dispatch => {
     fetchProject: id => dispatch(fetchProject(id)),
     updateProject: project => dispatch(updateProject(project)),
     clearProjectErrors: () => dispatch(clearProjectErrors()),
+    fetchCategories: () => dispatch(fetchCategories()),
   };
 };
 

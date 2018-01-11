@@ -17,7 +17,7 @@
 
 class Project < ApplicationRecord
   validates :title, presence: true, uniqueness: true
-  validates :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id, presence: true
+  validates :image, :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id, presence: true
 
   belongs_to :author,
     foreign_key: :author_id,

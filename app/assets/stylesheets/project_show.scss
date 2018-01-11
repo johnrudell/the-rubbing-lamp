@@ -1,23 +1,33 @@
 @import "./util/variables";
 
 .project-show {
-  padding: 40px;
+  // padding: 40px;
 }
 
 .p-show-top {
   display: flex;
   .p-show-author {
     font-size: 13px;
-    margin-top: 20px;
+    margin-top: 4px;
     flex: 1;
+    .author-img {
+      border-radius: 50%;
+      object-fit: contain;
+      width: 40px;
+      height: 40px;
+    }
+    .author-name {
+      margin-top: 10px;
+    }
   }
   .p-show-header {
-    margin-left: 10px;
+    // margin-left: 10px;
     flex: 5;
     h1 {
       font-size: 30px;
     }
     p {
+      margin-top: 15px;
       font-size: 16px;
       color: $color-navy;
     }
@@ -33,14 +43,39 @@
 .p-show-middle {
   margin-top: 50px;
   display: flex;
-  .p-show-img {
-    object-fit: cover;
-    height: 300px;
-    width: 400px;
+  .p-show-middle-left {
+    // padding-right: 30px;
     flex: 2;
-    padding-right: 30px;
+    .p-show-img {
+      object-fit: cover;
+      max-height: 400px;
+      min-width: 400px;
+      // max-width: 500px;
+      // height: 300px;
+      width: 90%;
+    }
+    .p-show-category {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+
+      // fix width
+      width: 60px;
+
+      &:visited {
+        color: $color-black1;
+      }
+      .fa-compass {
+        padding-right: 11px;
+      }
+      .p-show-category-name {
+
+      }
+    }
+
   }
-  .p-show-info {
+
+  .p-show-middle-right {
     margin-top: -14px;
     flex: 1;
     div {
@@ -56,9 +91,15 @@
     .p-show-info-item {
       margin-top: 14px;
     }
+    .backing-text {
+      font-size: 12px;
+      margin-top: 10px;
+      color: $color-black1;
+    }
   }
 }
-.back-button, .update-button {
+
+.backing-button, .update-button {
   margin-top: 30px;
   background-color: $color-green;
   color: white;

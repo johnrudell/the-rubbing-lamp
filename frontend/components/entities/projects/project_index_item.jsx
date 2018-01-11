@@ -1,7 +1,12 @@
 import React from 'react';
 import { Line, Circle } from 'rc-progress';
 import { Link } from 'react-router-dom';
-import { percentFundedFunction, daysToGo, numberWithCommas } from '../../../util/project_util';
+import {
+  percentFundedFunction,
+  progressFundedFunction,
+  daysToGo,
+  numberWithCommas
+} from '../../../util/project_util';
 
 class ProjectIndexItem extends React.Component {
 
@@ -9,6 +14,7 @@ class ProjectIndexItem extends React.Component {
     const { project } = this.props;
 
     const percentFunded = percentFundedFunction(project.funding_raised, project.funding_goal);
+    const progressFunded = progressFundedFunction(project.funding_raised, project.funding_goal);
 
     return (
       <li className="project-list-item">
@@ -21,7 +27,7 @@ class ProjectIndexItem extends React.Component {
           </Link>
           <div className="project-author">by {project.author.username}</div>
           <Line className="progress-bar"
-            percent={percentFunded}
+            percent={progressFunded}
             strokeLinecap="square"
             trailWidth="1"
             strokeWidth="1"
@@ -29,7 +35,9 @@ class ProjectIndexItem extends React.Component {
             strokeColor="#0f7262" />
           <div className="project-funding">${numberWithCommas(project.funding_raised)} pledged</div>
           <div className="project-percent">{percentFunded}% funded</div>
-          <div className="project-deadline">{daysToGo(project.deadline)}</div>
+          <div className="project-deadline">
+            {daysToGo(project.deadline, project.funding_raised, project.funding_goal)}
+          </div>
           <div className="project-category">
             <Link className="project-category-link" to={`/categories/${project.category.id}/all`}>
               {project.category.name}
