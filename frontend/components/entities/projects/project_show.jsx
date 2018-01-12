@@ -50,6 +50,8 @@ class ProjectShow extends React.Component {
       updateButton = "";
     }
 
+    const backerNum = project.funding_raised > 500 ? "8" : "0"
+    const backerText = backerNum === 1 ? "backer" : "backers"
 
     return (
       <div className="main-content project-show">
@@ -87,8 +89,8 @@ class ProjectShow extends React.Component {
               ${numberWithCommas(project.funding_raised)}
             </div>
             <p>pledged of ${numberWithCommas(project.funding_goal)} goal</p>
-            <div className="p-show-info-item">59</div>
-            <p>backers</p>
+            <div className="p-show-info-item">{backerNum}</div>
+            <p>{backerText}</p>
             <div className="p-show-info-item">
               {daysToGoNoString(project.deadline, project.funding_raised, project.funding_goal)}
             </div>

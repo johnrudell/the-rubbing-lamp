@@ -5,6 +5,8 @@ export const daysToGo = (end_date, raised, goal) => {
 
   const dayDifference = Math.round(Math.abs((date1 - date2) / oneDay));
 
+
+
   if (date2 < date1) {
     if (raised >= goal) {
       return "This wish has been granted!";
