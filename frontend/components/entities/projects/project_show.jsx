@@ -93,7 +93,7 @@ class ProjectShow extends React.Component {
               {daysToGoNoString(project.deadline, project.funding_raised, project.funding_goal)}
             </div>
             <p>{this.renderWishGrantedConditional()}</p>
-            <button className="backing-button">Back this wish</button>
+            <button className="backing-button" onClick={() => alert("Under Construction")}>Back this wish</button>
             <p className="backing-text">
               All or nothing. This wish will only be funded if it reaches its goal by {formatDeadline(project.deadline)}.
             </p>
@@ -114,20 +114,21 @@ class ProjectShow extends React.Component {
                 <div className="pledge-input">
                   <div className="pledge-sign">$</div>
                   <input type="number"
+                    onChange={() => alert("Under Construction")}
                     />
                 </div>
               </li>
               <li className="reward-item">
                 <div className="reward-content">Reward Item</div>
-                <p className="reward-hover-content">Select this reward</p>
+                <p className="reward-hover-content">Under Construction</p>
               </li>
               <li className="reward-item">
                 <div className="reward-content">Reward Item</div>
-                <p className="reward-hover-content">Select this reward</p>
+                <p className="reward-hover-content">Under Construction</p>
               </li>
               <li className="reward-item">
                 <div className="reward-content">Reward Item</div>
-                <p className="reward-hover-content">Select this reward</p>
+                <p className="reward-hover-content">Under Construction</p>
               </li>
             </ul>
           </div>
