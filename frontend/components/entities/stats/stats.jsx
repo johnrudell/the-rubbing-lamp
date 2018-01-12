@@ -34,10 +34,8 @@ class Stats extends React.Component {
   }
 
   fundedProjects() {
-    // debugger
     let count = 0;
     this.props.projects.forEach( project => {
-      // debugger
       if (project.funding_raised > project.funding_goal) {
         count++;
       }

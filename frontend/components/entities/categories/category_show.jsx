@@ -49,7 +49,7 @@ class CategoryShow extends React.Component {
 
       const featuredProject = (
         <Link className="featured-project" to={`/projects/${recentProject.id}`}>
-          <img className="featured-img" src={recentProject.image} />
+          <img className="featured-img" src={recentProject.imageUrl} />
           <div className="featured-info-container">
             <div className="featured-title">{recentProject.title}</div>
             <div className="featured-author">by {recentProject.author.username}</div>

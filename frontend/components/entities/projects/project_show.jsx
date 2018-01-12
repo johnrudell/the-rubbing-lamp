@@ -69,7 +69,7 @@ class ProjectShow extends React.Component {
         </div>
         <div className="p-show-middle">
           <div className="p-show-middle-left">
-            <img className="p-show-img" src={project.image} />
+            <img className="p-show-img" src={project.imageUrl} />
             <Link className="p-show-category" to={`/categories/${project.category.id}/all`}>
               <i className="fa fa-compass" aria-hidden="true"></i>
               <p className="p-show-category-name">{project.category.name}</p>

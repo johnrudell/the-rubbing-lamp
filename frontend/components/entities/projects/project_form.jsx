@@ -5,7 +5,7 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      categoryId: 1,
+      categoryId: 57,
       title: '',
       shortBlurb: '',
       deadline: '',
@@ -14,11 +14,13 @@ class ProjectForm extends React.Component {
       fundingRaised: 0,
       authorId: props.currentUser.id,
       imageFile: '',
-      imageUrl: ''
+      imageUrl: '',
+      errored: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.handleImageError = this.handleImageError.bind(this);
   }
 
   componentDidMount(){
@@ -34,14 +36,12 @@ class ProjectForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.project && !this.props.project) {
-      debugger
+    if (nextProps.project) {
       this.setState(nextProps.project)
     }
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     const file = this.state.imageFile;
 
@@ -57,13 +57,13 @@ class ProjectForm extends React.Component {
     formData.append("project[description]", this.state.description)
     formData.append("project[funding_raised]", this.state.fundingRaised)
     formData.append("project[author_id]", this.state.authorId)
-    // formData.append("project[image_file]", this.state.imageFile)
 
     if (this.props.formType === 'new') {
       this.props.createProject(formData).then( (project) => {
         return this.props.history.push(`/projects/${project.id}`);
       });
     } else {
+      formData.append("project[id]", this.state.id)
       this.props.updateProject(formData).then( (project) => {
         return this.props.history.push(`/projects/${project.id}`);
       });
@@ -72,9 +72,7 @@ class ProjectForm extends React.Component {
   }
 
   update(field) {
-    // debugger
     return e => {
-      // debugger
       if (field === "categoryId") {
         this.setState({ [field]: parseInt(e.target.value) })
       } else {
@@ -91,7 +89,8 @@ class ProjectForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({
           imageFile: file,
-          imageUrl: fileReader.result
+          imageUrl: fileReader.result,
+          errored: false
       });
     }
 
@@ -120,24 +119,32 @@ class ProjectForm extends React.Component {
     }
   }
 
+  handleImageError() {
+    if (this.state.errored === false) {
+      this.setState({
+        errored: true
+      })
+    }
+  }
+
   render() {
-    const text = this.props.formType === 'new' ? "Make a wish" : "Rethink your wish";
+    const submitText = this.props.formType === 'new' ? "Make a wish" : "Rethink your wish";
+    const headerText = this.props.formType === 'new' ? "Rub the Lamp" : "Edit your wish";
 
     const categories = this.props.categories.map( category => {
       return <option key={category.id} value={category.id}>{category.name}</option>;
     });
-    // debugger
     return (
       <div className="new-project-container">
         <form className="new-project-form">
-          <h1 className="new-project-header">Rub the lamp</h1>
+          <h1 className="new-project-header">{headerText}</h1>
           <ul className="input-list">
             <li>
               <div className="list-number">1.</div>
               <div className="input-container">
                 <label>Choose a category:</label>
                 <select className="category-dropdown"
-                  value={this.state.category_id}
+                  value={this.state.categoryId}
                   onChange={this.update('categoryId')} >
                   {categories}
                 </select>
@@ -146,7 +153,7 @@ class ProjectForm extends React.Component {
             <li>
               <div className="list-number">2.</div>
               <div className="input-container">
-                <label>Give your project a title:</label>
+                <label>Give your wish a title:</label>
                 <input className="form-input-field"
                   value={this.state.title}
                   onChange={this.update('title')}
@@ -156,9 +163,9 @@ class ProjectForm extends React.Component {
             <li>
               <div className="list-number">3.</div>
               <div className="input-container">
-                <label>Give your project a short blurb:</label>
+                <label>Give your wish a short blurb:</label>
                 <input className="form-input-field"
-                  value={this.state.short_blurb}
+                  value={this.state.shortBlurb}
                   onChange={this.update('shortBlurb')}
                   placeholder="short blurb..." />
               </div>
@@ -181,7 +188,7 @@ class ProjectForm extends React.Component {
                   <span>$ </span>
                   <input className="form-input-field"
                     type="number"
-                    value={this.state.funding_goal}
+                    value={this.state.fundingGoal}
                     onChange={this.update('fundingGoal')}
                     placeholder="1000" />
                 </div>
@@ -205,6 +212,8 @@ class ProjectForm extends React.Component {
                 <div className="upload-image-container">
                   <label className="upload-label">Conjure an image</label>
                   <img className="upload-image"
+                    style={{display: (this.state.errored ? "none" : "")}}
+                    onError={this.handleImageError}
                     src={this.state.imageUrl} />
                   <input className="upload-image-button"
                     type="file"
@@ -215,7 +224,7 @@ class ProjectForm extends React.Component {
           </ul>
           {this.renderErrors()}
           <button className="project-submit-button" onClick={this.handleSubmit}>
-            {text}
+            {submitText}
           </button>
         </form>
       </div>

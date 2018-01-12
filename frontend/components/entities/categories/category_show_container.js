@@ -4,9 +4,6 @@ import { selectCategoryProjects } from '../../../reducers/selectors';
 import CategoryShow from './category_show';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
-  // const category = state.entities.categories[ownProps.match.params.categoryId] || { project_ids: [] };
-  // debugger
   const categories = state.entities.categories;
 
   const category = categories[ownProps.match.params.categoryId] || categories[Object.keys(categories)[0]];

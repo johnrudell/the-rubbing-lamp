@@ -5,7 +5,6 @@ const categoryReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CATEGORIES:
-    // debugger
       return action.categories;
     case RECEIVE_CATEGORY:
     // const newCategory = {[action.category.id]: action.category};

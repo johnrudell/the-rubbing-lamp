@@ -1,6 +1,5 @@
 json.extract! project,  :id,
                         :title,
-                        :short_blurb,
                         :description,
                         :funding_goal,
                         :deadline,
@@ -10,5 +9,6 @@ json.extract! project,  :id,
                         :author,
                         :category,
                         :created_at
-json.image asset_path(project.image.url)
+json.shortBlurb project.short_blurb
+json.imageUrl asset_path(project.image.url)
 json.id project.id
