@@ -1,24 +1,18 @@
-# README
+<h1><a href="https://the-rubbing-lamp.herokuapp.com/#/">The Rubbing Lamp</a></h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p>The Rubbing Lamp, a Kickstarter clone, is a crowdfunding platform that grants users the ability to make a well thought-out project (wish). Other users (genies) can back a project and ultimately grant that wish when it is fully funded.</p>
 
-Things you may want to cover:
+<img src="http://res.cloudinary.com/rudell84/image/upload/v1515783310/rubbing-lamp-home.jpg_y9xg8v.png"></img>
 
-* Ruby version
+<h2>Features</h2>
+<ul>
+  <li>User Authentication</li>
+  <li>Project Creation</li>
+  <li>Project Update</li>
+  <li>Category Filtering</li>
+  <li>Statistics Bar</li>
+  <li>Amazon Web Services and Paperclip Image Uploading</li>
+</ul>
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h2>Project Show Page</h2>
+<img src="http://res.cloudinary.com/rudell84/image/upload/v1515783726/rubbing-lamp-show_iwl0yg.png"></img>
