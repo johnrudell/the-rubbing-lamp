@@ -130,7 +130,7 @@ class ProjectForm extends React.Component {
   render() {
     const submitText = this.props.formType === 'new' ? "Make a wish" : "Rethink your wish";
     const headerText = this.props.formType === 'new' ? "Rub the Lamp" : "Edit your wish";
-    // debugger
+
     const categories = this.props.categories.map( category => {
       return <option key={category.id} value={category.id}>{category.name}</option>;
     });
@@ -187,6 +187,7 @@ class ProjectForm extends React.Component {
                 <div className="pretext-input">
                   <span>$ </span>
                   <input className="form-input-field"
+                    min="100"
                     type="number"
                     value={this.state.fundingGoal}
                     onChange={this.update('fundingGoal')}
