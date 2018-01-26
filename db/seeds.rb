@@ -132,3 +132,24 @@ project6 = Project.create(
   category_id: category1.id,
   image: 'https://i.ytimg.com/vi/4jYOOk-cJj0/maxresdefault.jpg'
 )
+
+reward1 = Reward.create(
+  amount: 100,
+  title: 'Space shoes',
+  description: 'Wear these shoes and you\'ll defy gravity',
+  project_id: project1.id
+)
+
+reward2 = Reward.create(
+  amount: 500,
+  title: 'A month of classes',
+  description: 'Free classes to explore the possibilities of space dance',
+  project_id: project1.id
+)
+
+reward3 = Reward.create(
+  amount: 1000,
+  title: '1k',
+  description: 'I am in your debt!',
+  project_id: project2.id
+)

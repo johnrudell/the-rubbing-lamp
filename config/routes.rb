@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy, :show]
     resources :categories, only: [:index, :show]
-    resources :projects, except: [:edit, :new]
+    resources :projects, except: [:edit, :new] do
+      resources :backings, only: [:create]
+    end
   end
-  
+
 end

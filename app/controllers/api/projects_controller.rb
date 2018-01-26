@@ -10,7 +10,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
+    params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
     @project = Project.new(project_params)
+    @project.author = current_user
 
     if @project.save
       render :show
@@ -20,7 +22,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    # @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
+    params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
 
     if @project.update(project_params)
       render :show
@@ -30,7 +34,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
     @project.destroy!
 
     render :show
@@ -39,6 +43,10 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:id, :title, :image, :short_blurb, :description, :funding_goal, :deadline, :funding_raised, :author_id, :category_id)
+    params.require(:project).permit(
+      :id, :title, :image, :short_blurb, :description, :funding_goal,
+      :deadline, :funding_raised, :author_id, :category_id,
+      :rewards_attributes: [:title, :description, :amount]
+    )
   end
 end

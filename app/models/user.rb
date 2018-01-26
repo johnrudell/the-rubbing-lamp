@@ -21,13 +21,13 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :projects
+  has_many :projects,
+    foreign_key: :author_id,
+    class_name: :Project
 
-  # has_many: backings
-
-  # has_many: backed_projects,
-  #   through: backings,
-  #   source: projects
+  has_many :backings,
+    foreign_key: :backer_id,
+    class_name: :Backing
 
 
   def self.find_by_credentials(username, password)
