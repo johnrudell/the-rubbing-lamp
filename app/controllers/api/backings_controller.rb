@@ -10,6 +10,7 @@ class Api::BackingsController < ApplicationController
     end
   end
 
+  private
   def backing_params
     params.require(:backing).permit(:amount, :backer_id, :reward_id)
   end

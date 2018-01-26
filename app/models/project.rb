@@ -34,12 +34,13 @@ class Project < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :rewards,
-    dependent: :destroy,
     inverse_of: :project
 
   has_many :backings,
     through: :rewards,
     source: :backings
+
+  accepts_nested_attributes_for :rewards
 
   # has_many :backers,
   #   through: :backings,

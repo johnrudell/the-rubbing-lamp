@@ -8,6 +8,7 @@ import {
   numberWithCommas
 } from '../../../util/project_util';
 import { formatDeadline } from '../../../util/time_util';
+import RewardIndex from '../rewards/reward_index';
 
 class ProjectShow extends React.Component {
 
@@ -120,6 +121,7 @@ class ProjectShow extends React.Component {
                     />
                 </div>
               </li>
+              <RewardIndex project={project} />
               <li className="reward-item">
                 <div className="reward-content">Reward Item</div>
                 <p className="reward-hover-content">Under Construction</p>

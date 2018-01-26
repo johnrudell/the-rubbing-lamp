@@ -9,10 +9,14 @@
 User.destroy_all
 Category.destroy_all
 Project.destroy_all
+Reward.destroy_all
+Backing.destroy_all
 
+# Users
 user1 = User.create(username: "demoUser", email: "demoUser@demo.com", password: "password")
 user2 = User.create(username: "john", email: "john@mail.com", password: "password")
 
+# Categories
 category1 = Category.create(
   name: 'Arts'
 )
@@ -45,6 +49,7 @@ category8 = Category.create(
   name: 'Comics & Illustration'
 )
 
+# Projects
 project1 = Project.create(
   title: 'Space Dance',
   short_blurb: 'Dance the night away in space',
@@ -133,6 +138,7 @@ project6 = Project.create(
   image: 'https://i.ytimg.com/vi/4jYOOk-cJj0/maxresdefault.jpg'
 )
 
+# Rewards
 reward1 = Reward.create(
   amount: 100,
   title: 'Space shoes',
@@ -153,3 +159,10 @@ reward3 = Reward.create(
   description: 'I am in your debt!',
   project_id: project2.id
 )
+
+# Backings
+backing1 = Backing.create(reward_id: reward1.id, backer_id: user1.id, amount: 100)
+backing2 = Backing.create(reward_id: reward1.id, backer_id: user2.id, amount: 150)
+backing3 = Backing.create(reward_id: reward2.id, backer_id: user1.id, amount: 500)
+backing4 = Backing.create(reward_id: reward3.id, backer_id: user1.id, amount: 500)
+backing5 = Backing.create(reward_id: reward3.id, backer_id: user2.id, amount: 1000)

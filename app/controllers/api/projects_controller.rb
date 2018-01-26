@@ -10,12 +10,13 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
+    debugger
     params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
     @project = Project.new(project_params)
     @project.author = current_user
 
     if @project.save
-      render :show
+      render json: @project
     else
       render json: @project.errors.full_messages, status: 422
     end
@@ -41,12 +42,11 @@ class Api::ProjectsController < ApplicationController
   end
 
   private
-
   def project_params
     params.require(:project).permit(
       :id, :title, :image, :short_blurb, :description, :funding_goal,
       :deadline, :funding_raised, :author_id, :category_id,
-      :rewards_attributes: [:title, :description, :amount]
+      rewards_attributes: [:title, :description, :amount]
     )
   end
 end

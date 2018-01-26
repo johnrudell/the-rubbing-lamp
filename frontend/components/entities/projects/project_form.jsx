@@ -5,7 +5,7 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      categoryId: 17,
+      categoryId: 129,
       title: '',
       shortBlurb: '',
       deadline: '',
@@ -15,12 +15,19 @@ class ProjectForm extends React.Component {
       authorId: props.currentUser.id,
       imageFile: '',
       imageUrl: '',
-      errored: false
+      errored: false,
+      rewards: [{
+        title: '',
+        description: '',
+        amount: 0
+      }]
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.handleImageError = this.handleImageError.bind(this);
+    this.rewards = this.rewards.bind(this);
+    this.addReward = this.addReward.bind(this);
   }
 
   componentDidMount(){
@@ -35,9 +42,32 @@ class ProjectForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
     if (nextProps.project) {
       this.setState(nextProps.project)
+    }
+    if (this.props.project !== nextProps.project) {
+      let rewards = nextProps.project.rewards.map(reward => {
+        return {
+          title: reward.title,
+          description: reward.description,
+          amount: reward.amount
+        };
+      });
+
+      let newState = merge({}, this.state);
+      newState.categoryId = nextProps.project.categoryId;
+      newState.title = nextProps.project.title;
+      newState.shortBlurb = nextProps.project.shortBlurb;
+      newState.deadline = nextProps.project.deadline;
+      newState.fundingGoal = nextProps.project.fundingGoal;
+      newState.description = nextProps.project.description;
+      newState.fundingRaised = nextProps.project.fundingRaised;
+      newState.authorId = nextProps.project.authorId;
+      newState.imageUrl = nextProps.project.imageUrl;
+      newState.errored = nextProps.project.errored;
+      newState.rewards = rewards;
+
+      this.setState(newState);
     }
   }
 
@@ -57,6 +87,7 @@ class ProjectForm extends React.Component {
     formData.append("project[description]", this.state.description)
     formData.append("project[funding_raised]", this.state.fundingRaised)
     formData.append("project[author_id]", this.state.authorId)
+    formData.append("project[rewards_attributes]", JSON.stringify(this.state.rewards));
 
     if (this.props.formType === 'new') {
       this.props.createProject(formData).then( (project) => {
@@ -126,6 +157,66 @@ class ProjectForm extends React.Component {
       })
     }
   }
+
+  setTitle(idx, e) {
+    this.state.rewards[idx].title = e.target.value;
+  }
+
+  setAmount(idx, e) {
+    this.state.rewards[idx].amount = e.target.value;
+  }
+
+  setReward(idx, e) {
+    this.state.rewards[idx].description = e.target.value;
+  }
+
+  addReward(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    let rewards = this.state.rewards;
+    rewards.push({
+      title: '',
+      description: '',
+      amount: 0
+    });
+
+    this.setState({rewards: rewards});
+  }
+
+  rewards() {
+    return (
+      this.state.rewards.map((rewards, idx) => {
+        return (
+          <div key={idx}>
+            <h3>Reward {idx + 1}</h3>
+            <ul>
+              <li>
+                <label>Title</label>
+                <input type="text"
+                  onChange={this.setTitle.bind(this, idx)}
+                  placeholder={rewards.title} />
+              </li>
+              <li>
+                <label>Amount</label>
+                <input type="number"
+                  onChange={this.setAmount.bind(this, idx)}
+                  placeholder={rewards.amount} />
+              </li>
+              <li>
+                <label>Description</label>
+                <textarea type="text"
+                  onChange={this.setReward.bind(this, idx)}
+                  placeholder={rewards.description}>
+                </textarea>
+              </li>
+            </ul>
+          </div>
+        );
+      })
+    );
+  }
+
 
   render() {
     const submitText = this.props.formType === 'new' ? "Make a wish" : "Rethink your wish";
@@ -222,6 +313,8 @@ class ProjectForm extends React.Component {
                 </div>
               </div>
             </li>
+            {this.rewards()}
+            <button onClick={this.addReward}>Add Reward</button>
           </ul>
           {this.renderErrors()}
           <button className="project-submit-button" onClick={this.handleSubmit}>

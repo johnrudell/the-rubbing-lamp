@@ -24,7 +24,7 @@ const Navbar = ({ currentUser, logout }) => {
 
       <ul className="nav-right nav-list">
         <li className="search">
-          {username}
+          Hi, {username}!
         </li>
         <li className="nav-outer-link">
           {session}

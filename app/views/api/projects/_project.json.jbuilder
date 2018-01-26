@@ -18,6 +18,8 @@ json.rewards project.rewards do |reward|
   json.extract! reward, :id,
                         :title,
                         :description,
-                        :amount
-                        :backings
+                        :amount,
+                        :backings,
+                        :backers,
+                        :project
 end

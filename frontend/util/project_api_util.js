@@ -23,17 +23,6 @@ export const createProject = formData => {
   });
 };
 
-
-// createPost: function(formData) {
-//   $.ajax({
-//     dataType: 'json',
-//     data: formData,
-//     success: function(post) {
-//       PostActions.receivePost(post);
-//     }
-//   })
-// }
-
 export const updateProject = project => {
   return $.ajax({
     method: 'PATCH',

@@ -1,0 +1,82 @@
+@import "./util/variables";
+
+.reward-item {
+  border: 1px solid $color-grey3;
+  color: $color-black1;
+  padding: 20px;
+  margin-bottom: 15px;
+  position: relative;
+  * {
+    padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  .pledge-text {
+  }
+  .pledge-input {
+    display: flex;
+    margin-top: 10px;
+    .pledge-sign {
+      border: 1px solid $color-grey3;
+      padding: 5px;
+      font-size: 11px;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-navy;
+    }
+    input {
+      border: 1px solid $color-grey3;
+      border-left: none;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .reward-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bolder;
+  }
+
+  .reward-description {
+    color: $color-grey4;
+    font-size: 12px;
+  }
+
+  .reward-backings {
+    color: $color-grey4;
+    font-size: 10px;
+  }
+
+}
+
+.reward-hover-content {
+  position: absolute;
+  background-color: $color-green-fade1;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.reward-item:hover .reward-hover-content{
+  visibility: visible;
+  opacity: 1;
+}

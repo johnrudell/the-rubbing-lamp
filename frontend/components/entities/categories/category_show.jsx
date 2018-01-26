@@ -42,7 +42,7 @@ class CategoryShow extends React.Component {
 
 
     if (!recentProject) {
-      return <div>There are no projects for this category yet.</div>;
+      return <div className="empty-category-projects">There are no projects for this category yet.</div>;
     } else {
 
       const percentFunded = percentFundedFunction(recentProject.funding_raised, recentProject.funding_goal);
