@@ -16,3 +16,22 @@ export const createBacking = backing => {
     })
   }
 }
+
+// export const createBacking = backings => {
+//   return dispatch => {
+//     return APIUtil.createBacking(backings).then(backing => {
+//       return dispatch(receiveBacking(backing));
+//     })
+//   }
+// }
+//
+// export const createBacking = (contributions) => dispatch => {
+//   return (
+//     APIUtil.createBacking(contributions)
+//     .then( (contribution) => {
+//       return dispatch(reciveBacking(contribution));
+//       }
+//
+//     )
+//   );
+// }

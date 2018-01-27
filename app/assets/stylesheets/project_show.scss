@@ -109,11 +109,17 @@
   transition: all 0.25s ease-in-out;
   width: 100%;
   padding: 13px 0;
+  text-align: center;
   &:hover {
     background-color: $color-dark-green3;
     cursor: pointer;
     transform: translateY(-1px);
   }
+}
+
+.backing-button {
+  display: block;
+  color: white;
 }
 
 .update-button {

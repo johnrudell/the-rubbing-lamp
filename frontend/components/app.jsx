@@ -17,6 +17,9 @@ import CategoryShowAllContainer from './entities/categories/category_show_all_co
 import ProjectIndexContainer from './entities/projects/project_index_container';
 import ProjectFormContainer from './entities/projects/project_form_container';
 import ProjectShowContainer from './entities/projects/project_show_container';
+
+import BackingIndexContainer from './entities/backings/backing_index_container';
+
 import StatsContainer from './entities/stats/stats_container';
 
 
@@ -33,6 +36,7 @@ const App = () => (
         <Route exact path="/projects/:projectId" component={ProjectShowContainer} />
         <ProtectedRoute exact path="/project/new" component={ProjectFormContainer} />
         <ProtectedRoute path='/projects/:projectId/edit' component={ProjectFormContainer}/>
+        <ProtectedRoute path='/projects/:projectId/backing' component={BackingIndexContainer}/>
         <div>
           <Route path="/" component={StatsContainer} />
           <Route path="/" component={CategoryIndexContainer} />

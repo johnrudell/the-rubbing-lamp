@@ -1,0 +1,68 @@
+@import "./util/variables";
+
+/* Backing Index */
+.backing_index {
+
+}
+
+.b-index-header {
+  background-color: $color-tan1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border-bottom: 1px solid $color-grey1;
+  .b-index-title {
+    font-size: 26px;
+    margin-bottom: 5px;
+    a {
+    }
+  }
+  .b-index-author {
+    font-size: 12px;
+  }
+}
+
+.b-index-content {
+  display: flex;
+  padding: 50px 8%;
+  .b-index-left {
+    flex: 2;
+    margin-right: 35px;
+    h2 {
+      font-size: 18px;
+    }
+  }
+  .b-index-right {
+    flex: 1;
+    font-size: 13px;
+    h5 {
+      font-weight: 1000;
+      margin-bottom: 2px;
+    }
+    h6 {
+      font-weight: 500;
+    }
+    p {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+}
+
+/* Backing Form */
+.backing-reward {
+  border: 1px solid $color-grey3;
+  margin: 15px 0;
+  padding: 15px;
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+    // cursor: pointer;
+  }
+}
+
+.b-reward-info {
+  display: flex;
+}

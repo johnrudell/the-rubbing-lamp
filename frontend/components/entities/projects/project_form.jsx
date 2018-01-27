@@ -1,4 +1,5 @@
 import React from 'react';
+import merge from 'lodash/merge';
 
 class ProjectForm extends React.Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class ProjectForm extends React.Component {
       newState.fundingGoal = nextProps.project.fundingGoal;
       newState.description = nextProps.project.description;
       newState.fundingRaised = nextProps.project.fundingRaised;
-      newState.authorId = nextProps.project.authorId;
+      // newState.authorId = this.props.currentUser.id;
       newState.imageUrl = nextProps.project.imageUrl;
       newState.errored = nextProps.project.errored;
       newState.rewards = rewards;
@@ -189,7 +190,7 @@ class ProjectForm extends React.Component {
       this.state.rewards.map((rewards, idx) => {
         return (
           <div key={idx}>
-            <h3>Reward {idx + 1}</h3>
+            <h3>Reward #{idx + 1}</h3>
             <ul>
               <li>
                 <label>Title</label>

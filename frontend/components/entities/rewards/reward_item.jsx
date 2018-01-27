@@ -6,7 +6,7 @@ const RewardItem = ({ reward, projectId }) => {
   const backings = reward.backings.length === 1 ? <span>backer</span> : <span>backers</span>;
 
   return (
-      <NavLink to={`projects/${projectId}/backing`}>
+      <NavLink to={`/projects/${projectId}/backing`}>
         <li className="reward-item" >
           <div className="reward-content">
             <h4 className="reward-amout">Pledge ${reward.amount} or more</h4>
