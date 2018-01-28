@@ -192,7 +192,7 @@ class ProjectForm extends React.Component {
           <div className="reward-box" key={idx}>
             <h3 className="reward-left">Reward #{idx + 1}</h3>
             <ul className="reward-right">
-              <li>
+              <li className="reward-box-item">
                 <label>Title</label>
                 <div className="reward-input-cont">
                   <input type="text"
@@ -200,7 +200,7 @@ class ProjectForm extends React.Component {
                     placeholder={rewards.title} />
                 </div>
               </li>
-              <li>
+              <li className="reward-box-item">
                 <label>Amount</label>
                 <div className="reward-input-cont">
                   <span className="reward-span">$</span>
@@ -209,7 +209,7 @@ class ProjectForm extends React.Component {
                     placeholder={rewards.amount} />
                 </div>
               </li>
-              <li>
+              <li className="reward-box-item">
                 <label>Description</label>
                 <div className="reward-input-cont">
                   <textarea type="text"
@@ -236,81 +236,23 @@ class ProjectForm extends React.Component {
     return (
       <div className="new-project-container">
         <form className="new-project-form">
-          <h1 className="new-project-header">{headerText}</h1>
+          <div className="new-project-header">
+            <h1>Rub the Lamp</h1>
+            <p>
+              Make a great first impression with your wishes title
+              and image, and set your funding goal, campaign duration,
+              and wish category.
+            </p>
+          </div>
           <ul className="input-list">
-            <li>
-              <div className="list-number">1.</div>
+            <li className="new-project-item">
+              <div className="input-label">Image</div>
               <div className="input-container">
-                <label>Choose a category:</label>
-                <select className="category-dropdown"
-                  value={this.state.categoryId}
-                  onChange={this.update('categoryId')} >
-                  {categories}
-                </select>
-              </div>
-            </li>
-            <li>
-              <div className="list-number">2.</div>
-              <div className="input-container">
-                <label>Give your wish a title:</label>
-                <input className="form-input-field"
-                  value={this.state.title}
-                  onChange={this.update('title')}
-                  placeholder="title..." />
-              </div>
-            </li>
-            <li>
-              <div className="list-number">3.</div>
-              <div className="input-container">
-                <label>Give your wish a short blurb:</label>
-                <input className="form-input-field"
-                  value={this.state.shortBlurb}
-                  onChange={this.update('shortBlurb')}
-                  placeholder="short blurb..." />
-              </div>
-            </li>
-            <li>
-              <div className="list-number">4.</div>
-              <div className="input-container">
-                <label>When will your funding end?</label>
-                <input className="form-input-field"
-                  type="date"
-                  value={this.state.deadline}
-                  onChange={this.update('deadline')} />
-              </div>
-            </li>
-            <li>
-              <div className="list-number">5.</div>
-              <div className="input-container">
-                <label>How much do you hope to raise?</label>
-                <div className="pretext-input">
-                  <span>$ </span>
-                  <input className="form-input-field"
-                    min="100"
-                    type="number"
-                    value={this.state.fundingGoal}
-                    onChange={this.update('fundingGoal')}
-                    placeholder="1000" />
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="list-number">6.</div>
-              <div className="input-container">
-                <label>Tell your story:</label>
-                <textarea rows="6" cols="40"
-                  placeholder="..."
-                  value={this.state.description}
-                  onChange={this.update('description')} >
-                </textarea>
-              </div>
-            </li>
-            <li>
-              <div className="list-number">7.</div>
-              <div className="input-container">
-
                 <div className="upload-image-container">
-                  <label className="upload-label">Conjure an image</label>
+                  <label className="upload-label">
+                    <span className="upload-text1">Conjure an image from your computer</span>
+                    <span className="upload-text2">This is the main image associated with your wish. Make it wow them!</span>
+                  </label>
                   <img className="upload-image"
                     style={{display: (this.state.errored ? "none" : "")}}
                     onError={this.handleImageError}
@@ -319,6 +261,90 @@ class ProjectForm extends React.Component {
                     type="file"
                     onChange={this.updateFile} />
                 </div>
+                <p className="input-footer">
+                  This is the first thing that people will see when they
+                  come across your project. Choose an image that’s crisp and text-free.
+                </p>
+              </div>
+            </li>
+            <li className="new-project-item">
+              <div className="input-label">Title</div>
+              <div className="input-container">
+                <input className="form-input-field"
+                  value={this.state.title}
+                  onChange={this.update('title')} />
+                <p className="input-footer">
+                  Make your title unique and stand out.
+                </p>
+              </div>
+            </li>
+            <li className="new-project-item">
+              <div className="input-label">Short blurb</div>
+              <div className="input-container">
+                <input className="form-input-field"
+                  value={this.state.shortBlurb}
+                  onChange={this.update('shortBlurb')} />
+                <p className="input-footer">
+                  Give people a sense of what you’re doing.
+                  Skip “Help me” and focus on what you’re making.
+                </p>
+              </div>
+            </li>
+            <li className="new-project-item">
+              <div className="input-label">Category</div>
+              <div className="input-container">
+                <select className="category-dropdown"
+                  value={this.state.categoryId}
+                  onChange={this.update('categoryId')} >
+                  {categories}
+                </select>
+              </div>
+            </li>
+            <li className="new-project-item">
+              <div className="input-label">Funding duration</div>
+              <div className="input-container">
+                <input className="form-input-field"
+                  type="date"
+                  value={this.state.deadline}
+                  onChange={this.update('deadline')} />
+                <p className="input-footer">
+                  Wishes with shorter durations have higher success
+                  rates. You won’t be able to adjust your duration after
+                  you channel your wish.
+                </p>
+              </div>
+            </li>
+            <li className="new-project-item">
+              <div className="input-label">Funding goal</div>
+              <div className="input-container">
+                <input className="form-input-field"
+                  min="100"
+                  type="number"
+                  value={this.state.fundingGoal}
+                  onChange={this.update('fundingGoal')}
+                  placeholder="$" />
+                <p className="input-footer">
+                  Funding on The Rubbing Lamp is all-or-nothing. It’s okay
+                  to raise more than your goal, but if your goal isn’t
+                  met, no money will be collected. Your goal should
+                  reflect the minimum amount of funds you need to
+                  grant your wish and send out rewards, and include
+                  a buffer for payments processing fees.
+                </p>
+              </div>
+            </li>
+            <li className="new-project-item">
+              <div className="input-label">Description</div>
+              <div className="input-container">
+                <textarea
+                  value={this.state.description}
+                  onChange={this.update('description')} >
+                </textarea>
+                <p className="input-footer">
+                  Use your wish description to share more about what
+                  you’re raising funds to do and how you plan to pull it
+                  off. It’s up to you to make the case for your wish.
+                </p>
               </div>
             </li>
             {this.rewards()}

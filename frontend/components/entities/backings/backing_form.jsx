@@ -44,10 +44,10 @@ class BackingForm extends React.Component {
       <div className="backing-reward">
         <div className="b-reward-info">
           <div className="b-reward-left">
-            <h4>${reward.amount} or more</h4>
-            <h4>{reward.title}</h4>
-            <p>{reward.description}</p>
-            <p>{reward.backings.length} {backings}</p>
+            <h4 className="b-reward-amount">${reward.amount} or more</h4>
+            <h4 className="b-reward-title">{reward.title}</h4>
+            <p className="b-reward-description">{reward.description}</p>
+            <p className="b-reward-backings">{reward.backings.length} {backings}</p>
           </div>
           <div className="b-reward-right">
             <h5>Ships to</h5>

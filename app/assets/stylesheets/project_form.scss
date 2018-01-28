@@ -3,91 +3,107 @@
 .new-project-container {
   background-color: white;
   display: flex;
+  // background-color: $color-grey1;
   background: url("https://www.hdwallpapers.in/walls/lg_g3_smoke_colors-wide.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  // -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  // -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  // box-shadow: 3px 3px 5px 6px #ccc;
-}
-
-.new-project-form {
-  // border: 1px solid black;
-  // border-radius: 10px;
-  padding: 50px;
-  margin: 90px auto;
-  background-color: white;
+  flex-direction: column;
 }
 
 .new-project-header {
-  font-size: 40px;
-  color: $color-link-blue;
-  font-weight: 500;
-  margin-left: 60px;
-  margin-bottom: 40px;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-align: center;
+  h1 {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 
+.new-project-form {
+  padding: 20px;
+  margin: 20px auto;
+  background-color: white;
+}
+
+
 .input-list {
-  li {
+  .new-project-item {
     display: flex;
-    .list-number {
-      font-size: 10px;
-      margin-top: 5px;
-      padding-right: 50px;
-      font-weight: 500;
-    }
+    background-color: $color-grey7;
+    padding: 10px;
+    margin-bottom: 15px;
   }
+}
+
+.input-label {
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 700;
+  flex: 1;
 }
 
 .input-container {
   color: $color-navy-light;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
-  font-size: 17px;
+  font-size: 12px;
+  flex: 3;
   label {
     padding-bottom: 8px;
   }
-  input, textarea {
-    border: 0;
+  input, textarea, select {
+    border: 1px solid white;
     outline: 0;
-    background: transparent;
-    border-bottom: 1px solid $color-black1;
-    font-size: 15px;
-    padding-bottom: 5px;
     letter-spacing: 0.5px;
-    font-family: 'Muli', sans-serif;
-    color: $color-navy-light;
-    width: 375px;
+    padding: 10px;
+    background-color: white;
     &:focus {
-      border-bottom: 1px solid $color-green;
+      border-color: $color-black1;
     }
   }
+  textarea {
+    height: 100px;
+  }
   .upload-image-container {
-    width: 375px;
+    width: 100%;
     height: 200px;
-    // border: 1px dotted $color-navy-light;
-    // border-radius: 10px;
+    max-width: 437px;
     position: relative;
     display: flex;
     transition: all 0.25s ease-in-out;
-    border: 1px dashed $color-black1;
+    background-color: white;
+    border: 1px dashed $color-link-blue;
+    border-radius: 5px;
     .upload-label {
       position: absolute;
       justify-content: center;
       align-self: center;
-      width: 375px;
+      width: 100%;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .upload-text1 {
+        color: $color-link-blue;
+        font-weight: 600;
+      }
+      .upload-text2 {
+        font-size: 10px;
+      }
     }
     .upload-image {
-      object-fit: contain;
-      width: 375px;
+      width: 100%;
       height: 200px;
       z-index: 2;
-
-      // opacity: 0;
     }
     .upload-image-button {
       position: absolute;
@@ -102,24 +118,14 @@
       }
     }
     &:hover {
-      font-size: 20px;
-      font-weight: 200;
-      background-color: $color-green;
-      color: white;
-      border: 1px dashed white;
+      background-color: $color-grey7;
     }
   }
-}
-
-// input[type="file"] {
-//   display: none;
-// }
-
-.pretext-input {
-  display: flex;
-  span {
-    font-size: 16px;
+  .input-footer {
+    font-size: 10px;
     color: $color-black1;
+    margin-top: 10px;
+    max-width: 500px;
   }
 }
 
@@ -129,18 +135,14 @@
   appearance: none;
   line-height: normal;
   position: relative;
-  font-size: 15px;
-  background: url("https://image.flaticon.com/icons/svg/60/60781.svg") no-repeat 120px center;
+  background: url("https://s3.amazonaws.com/the-rubbing-lamp-pro/static/down-arrow.svg") no-repeat 120px center;
   background-position: right 10px top 50%;
   background-size: 20px 25px;
   padding: 5px;
-  width: 170px;
+  border-radius: 0;
   &:focus {
     outline: none;
-    border-color: $color-green;
-  }
-  &:hover {
-    border-color: $color-link-blue;
+    border-color: $color-black1;
   }
   option {
     color: $color-black1;
@@ -152,21 +154,25 @@
 
 .project-errors {
   color: red;
-  margin-left: 60px;
-  // text-align: center;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .project-submit-button {
-  background-color: $color-green4;
+  background-color: $color-blue1;
   color: white;
   text-align: center;
-  margin: 40px;
-  margin-left: 60px;
   padding: 10px 30px 15px;
   transition: all 0.25s ease-in-out;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
   &:hover {
-    background-color: $color-dark-green3;
+    background-color: $color-blue2;
     cursor: pointer;
+  }
+  &:focus {
+    outline: none;
   }
 }
 
@@ -175,8 +181,7 @@
 ::-webkit-datetime-edit-year-field,
 ::-webkit-datetime-edit-text {
   color: $color-grey5;
-  // font-family: 'Muli', sans-serif;
-  // font-weight: 100;
+  font-family: 'Muli', sans-serif;
 }
 
 /* Add reward */
@@ -197,9 +202,10 @@
 .reward-right {
   flex: 3;
   background-color: white;
-  li {
+  .reward-box-item {
     border: 1px solid $color-grey3;
     border-bottom: none;
+    display: flex;
     &:last-child {
       border-bottom: 1px solid $color-grey3;
     }
