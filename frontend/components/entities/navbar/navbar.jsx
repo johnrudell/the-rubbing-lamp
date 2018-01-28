@@ -7,7 +7,7 @@ const Navbar = ({ currentUser, logout }) => {
     <button className="session-button" onClick={logout}>Log out</button> :
     <Link className="session-button" to="/login">Sign in</Link>
 
-  const username = currentUser ? <span>{currentUser.username}</span> : ""
+  const username = currentUser ? <span>Hi, {currentUser.username}!</span> : ""
 
   return (
     <nav className="row header navbar">
@@ -24,7 +24,7 @@ const Navbar = ({ currentUser, logout }) => {
 
       <ul className="nav-right nav-list">
         <li className="search">
-          Hi, {username}!
+          {username}
         </li>
         <li className="nav-outer-link">
           {session}

@@ -189,27 +189,34 @@ class ProjectForm extends React.Component {
     return (
       this.state.rewards.map((rewards, idx) => {
         return (
-          <div key={idx}>
-            <h3>Reward #{idx + 1}</h3>
-            <ul>
+          <div className="reward-box" key={idx}>
+            <h3 className="reward-left">Reward #{idx + 1}</h3>
+            <ul className="reward-right">
               <li>
                 <label>Title</label>
-                <input type="text"
-                  onChange={this.setTitle.bind(this, idx)}
-                  placeholder={rewards.title} />
+                <div className="reward-input-cont">
+                  <input type="text"
+                    onChange={this.setTitle.bind(this, idx)}
+                    placeholder={rewards.title} />
+                </div>
               </li>
               <li>
                 <label>Amount</label>
-                <input type="number"
-                  onChange={this.setAmount.bind(this, idx)}
-                  placeholder={rewards.amount} />
+                <div className="reward-input-cont">
+                  <span className="reward-span">$</span>
+                  <input type="number"
+                    onChange={this.setAmount.bind(this, idx)}
+                    placeholder={rewards.amount} />
+                </div>
               </li>
               <li>
                 <label>Description</label>
-                <textarea type="text"
-                  onChange={this.setReward.bind(this, idx)}
-                  placeholder={rewards.description}>
-                </textarea>
+                <div className="reward-input-cont">
+                  <textarea type="text"
+                    onChange={this.setReward.bind(this, idx)}
+                    placeholder={rewards.description}>
+                  </textarea>
+                </div>
               </li>
             </ul>
           </div>
@@ -315,7 +322,10 @@ class ProjectForm extends React.Component {
               </div>
             </li>
             {this.rewards()}
-            <button onClick={this.addReward}>Add Reward</button>
+            <button className="add-reward-button" onClick={this.addReward}>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              Add a new reward
+            </button>
           </ul>
           {this.renderErrors()}
           <button className="project-submit-button" onClick={this.handleSubmit}>

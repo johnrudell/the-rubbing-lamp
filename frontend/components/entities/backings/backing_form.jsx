@@ -21,13 +21,13 @@ class BackingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
-    debugger
+    // debugger
     if (this.props.reward.amount > this.state.amount) {
       this.setState({amount: this.props.reward.amount});
       // solve double click of button by putting the createBacking here as well
     } else {
       this.props.createBacking(this.state).then(backing => {
-        debugger
+        // debugger
         return this.props.history.push(`/projects/${this.props.project.id}`);
       });
     }

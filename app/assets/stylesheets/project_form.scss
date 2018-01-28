@@ -16,7 +16,7 @@
 .new-project-form {
   // border: 1px solid black;
   // border-radius: 10px;
-  padding: 30px;
+  padding: 50px;
   margin: 90px auto;
   background-color: white;
 }
@@ -130,8 +130,9 @@
   line-height: normal;
   position: relative;
   font-size: 15px;
-  background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat 120px center;
+  background: url("https://image.flaticon.com/icons/svg/60/60781.svg") no-repeat 120px center;
   background-position: right 10px top 50%;
+  background-size: 20px 25px;
   padding: 5px;
   width: 170px;
   &:focus {
@@ -166,5 +167,87 @@
   &:hover {
     background-color: $color-dark-green3;
     cursor: pointer;
+  }
+}
+
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field,
+::-webkit-datetime-edit-text {
+  color: $color-grey5;
+  // font-family: 'Muli', sans-serif;
+  // font-weight: 100;
+}
+
+/* Add reward */
+
+.reward-box {
+  background-color: $color-grey7;
+  font-size: 12px;
+  display: flex;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.reward-left {
+  flex: 1;
+  font-weight: 700;
+}
+
+.reward-right {
+  flex: 3;
+  background-color: white;
+  li {
+    border: 1px solid $color-grey3;
+    border-bottom: none;
+    &:last-child {
+      border-bottom: 1px solid $color-grey3;
+    }
+    label {
+      display: flex;
+      flex: 1;
+      padding: 10px;
+      border-right: 1px solid $color-grey3;
+    }
+    .reward-input-cont {
+      padding-left: 5px;
+      display: flex;
+      flex: 3;
+      .reward-span {
+        display: flex;
+        align-items: center;
+      }
+      input, textarea {
+        border: none;
+        width: 100%;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    textarea {
+      height: 100px;
+      padding-top: 6px;
+    }
+  }
+}
+
+.add-reward-button {
+  border: 1px dashed $color-grey3;
+  width: 100%;
+  padding: 25px;
+  font-size: 12px;
+  &:hover {
+    cursor: pointer;
+    background-color: $color-grey7;
+    color: $color-link-blue;
+  }
+  &:focus {
+    outline: none;
+  }
+  .fa-plus {
+    height: 10px;
+    width: 10px;
+    padding-right: 10px;
   }
 }
