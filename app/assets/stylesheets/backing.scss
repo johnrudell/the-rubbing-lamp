@@ -26,16 +26,16 @@
 
 .b-index-content {
   display: flex;
-  padding: 50px 8%;
+  padding: 50px 15%;
   .b-index-left {
-    // flex: 2;
+    flex: 4;
     margin-right: 35px;
     h2 {
       font-size: 18px;
     }
   }
   .b-index-right {
-    flex: 1;
+    flex: 3;
     font-size: 13px;
     h5 {
       font-weight: 1000;
@@ -57,12 +57,123 @@
   margin: 15px 0;
   padding: 15px;
   transition: all .2s ease-in-out;
+  font-size: 14px;
   &:hover {
     transform: scale(1.05);
-    // cursor: pointer;
+    border-color: $color-black1;
   }
 }
 
 .b-reward-info {
   // display: flex;
+  .b-reward-top {
+    margin-bottom: 10px;
+    .b-reward-amount {
+      margin-bottom: 14px;
+    }
+    .b-reward-title {
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .b-reward-description {
+      font-size: 12px;
+      color: $color-grey9;
+    }
+  }
+  .b-reward-bottom {
+    display: flex;
+    h5, p {
+      font-size: 10px;
+    }
+    h5 {
+      text-transform: uppercase;
+      color: $color-grey9;
+      letter-spacing: 0.5px;
+      font-weight: 100;
+      margin-bottom: 2px;
+    }
+    p {
+      font-weight: 400;
+    }
+    .b-reward-del {
+      flex: 1;
+    }
+    .b-reward-ship {
+      flex: 1;
+    }
+  }
+}
+
+.pledge-subtext {
+  font-size: 10px;
+  color: $color-grey9;
+  font-weight: 600;
+  margin: 20px 0 3px;
+}
+
+.b-reward-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.b-reward-input-cont {
+  display: flex;
+  .b-reward-span {
+    border: 1px solid $color-grey3;
+    padding: 5px;
+    font-size: 11px;
+    width: 30px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-navy;
+  }
+  input {
+    border: 1px solid $color-grey3;
+    border-left: none;
+    width: 100%;
+    padding-left: 10px;
+    &:focus {
+      outline: none;
+      // border-color: green;
+    }
+  }
+}
+
+.b-reward-submit {
+  margin-top: 15px;
+  background-color: #169d74;
+  color: white;
+  font-weight: lighter;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  padding: 10px;
+  &:hover {
+    background-color: $color-dark-green3;
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+}
+
+// larger than 900px
+@media only screen and (min-width: 1000px) {
+  .b-reward-form {
+    flex-direction: row;
+  }
+  .b-reward-input-cont {
+    flex: 2;
+    margin-right: 25px;
+    .b-reward-span {
+      height: auto;
+    }
+  }
+  .b-reward-submit {
+    margin: 0;
+    flex: 1;
+  }
 }

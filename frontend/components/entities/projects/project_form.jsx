@@ -20,7 +20,8 @@ class ProjectForm extends React.Component {
       rewards: [{
         title: '',
         description: '',
-        amount: 0
+        amount: 0,
+        delivery_date: ''
       }]
     };
 
@@ -51,7 +52,8 @@ class ProjectForm extends React.Component {
         return {
           title: reward.title,
           description: reward.description,
-          amount: reward.amount
+          amount: reward.amount,
+          delivery_date: reward.delivery_date
         };
       });
 
@@ -63,7 +65,6 @@ class ProjectForm extends React.Component {
       newState.fundingGoal = nextProps.project.fundingGoal;
       newState.description = nextProps.project.description;
       newState.fundingRaised = nextProps.project.fundingRaised;
-      // newState.authorId = this.props.currentUser.id;
       newState.imageUrl = nextProps.project.imageUrl;
       newState.errored = nextProps.project.errored;
       newState.rewards = rewards;
@@ -167,8 +168,12 @@ class ProjectForm extends React.Component {
     this.state.rewards[idx].amount = e.target.value;
   }
 
-  setReward(idx, e) {
+  setDescription(idx, e) {
     this.state.rewards[idx].description = e.target.value;
+  }
+
+  setDate(idx, e) {
+    this.state.rewards[idx].delivery_date = e.target.value;
   }
 
   addReward(e) {
@@ -179,7 +184,8 @@ class ProjectForm extends React.Component {
     rewards.push({
       title: '',
       description: '',
-      amount: 0
+      amount: 0,
+      delivery_date: ''
     });
 
     this.setState({rewards: rewards});
@@ -213,9 +219,17 @@ class ProjectForm extends React.Component {
                 <label>Description</label>
                 <div className="reward-input-cont">
                   <textarea type="text"
-                    onChange={this.setReward.bind(this, idx)}
+                    onChange={this.setDescription.bind(this, idx)}
                     placeholder={rewards.description}>
                   </textarea>
+                </div>
+              </li>
+              <li className="reward-box-item">
+                <label>Estimated delivery</label>
+                <div className="reward-input-cont">
+                  <input type="date"
+                    onChange={this.setDate.bind(this, idx)}
+                    placeholder={rewards.delivery_date} />
                 </div>
               </li>
             </ul>

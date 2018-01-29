@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { formatDeliveryDate } from '../../../util/time_util';
 
 class BackingForm extends React.Component {
   constructor(props) {
@@ -21,13 +22,13 @@ class BackingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
-    // debugger
+    debugger
     if (this.props.reward.amount > this.state.amount) {
       this.setState({amount: this.props.reward.amount});
       // solve double click of button by putting the createBacking here as well
     } else {
       this.props.createBacking(this.state).then(backing => {
-        // debugger
+        debugger
         return this.props.history.push(`/projects/${this.props.project.id}`);
       });
     }
@@ -43,23 +44,33 @@ class BackingForm extends React.Component {
     return (
       <div className="backing-reward">
         <div className="b-reward-info">
-          <div className="b-reward-left">
+          <div className="b-reward-top">
             <h4 className="b-reward-amount">${reward.amount} or more</h4>
             <h4 className="b-reward-title">{reward.title}</h4>
             <p className="b-reward-description">{reward.description}</p>
-            <p className="b-reward-backings">{reward.backings.length} {backings}</p>
           </div>
-          <div className="b-reward-right">
-            <h5>Ships to</h5>
-            <p>Anywhere in the world</p>
+          <div className="b-reward-bottom">
+            <div className="b-reward-del">
+              <h5>Estimated delivery</h5>
+              <p>{formatDeliveryDate(reward.delivery_date)}</p>
+            </div>
+            <div className="b-reward-ship">
+              <h5>Ships to</h5>
+              <p>Anywhere in the world</p>
+            </div>
           </div>
         </div>
 
+        <p className="pledge-subtext">Pledge amount</p>
+
         <form className="b-reward-form">
-          <input className="b-reward-input"
-            type="number"
-            value={this.state.amount}
-            onChange={this.update()} />
+          <div className="b-reward-input-cont">
+            <span className="b-reward-span">$</span>
+            <input className="b-reward-input"
+              type="number"
+              value={this.state.amount}
+              onChange={this.update()} />
+          </div>
           <button className="b-reward-submit" onClick={this.handleSubmit}>
             Grant this wish
           </button>

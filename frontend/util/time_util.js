@@ -44,3 +44,21 @@ export const formatDeadline = (end_date) => {
   );
 
 };
+
+export const formatDeliveryDate = (delivery_date) => {
+  const monthNames = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "June", "July",
+    "Aug", "Sept", "Oct",
+    "Nov", "Dec"
+  ];
+
+  const deliveryDate = new Date(delivery_date)
+  const monthIndex = deliveryDate.getMonth();
+  const year = deliveryDate.getFullYear();
+
+  return (
+    `${monthNames[monthIndex]} ${year}`
+  );
+
+};

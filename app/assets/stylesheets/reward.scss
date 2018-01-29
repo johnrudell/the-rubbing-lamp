@@ -45,12 +45,27 @@
   }
 
   .reward-description {
-    color: $color-grey4;
+    color: $color-grey9;
     font-size: 12px;
   }
 
+  .reward-date-cont {
+    .reward-date-title {
+      text-transform: uppercase;
+      font-size: 10px;
+      padding-bottom: 2px;
+      letter-spacing: 0.25px;
+      font-weight: 100;
+    }
+    .reward-date-content {
+      font-size: 10px;
+      font-weight: 600;
+
+    }
+  }
+
   .reward-backings {
-    color: $color-grey4;
+    color: $color-grey9;
     font-size: 10px;
   }
 

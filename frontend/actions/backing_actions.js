@@ -10,8 +10,10 @@ export const receiveBacking = backing => {
 };
 
 export const createBacking = backing => {
+  // debugger
   return dispatch => {
     return APIUtil.createBacking(backing).then(backing => {
+      debugger
       return dispatch(receiveBacking(backing));
     })
   }
@@ -24,7 +26,7 @@ export const createBacking = backing => {
 //     })
 //   }
 // }
-//
+
 // export const createBacking = (contributions) => dispatch => {
 //   return (
 //     APIUtil.createBacking(contributions)

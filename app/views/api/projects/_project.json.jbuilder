@@ -21,5 +21,6 @@ json.rewards project.rewards do |reward|
                         :amount,
                         :backings,
                         :backers,
-                        :project
+                        :project,
+                        :delivery_date
 end

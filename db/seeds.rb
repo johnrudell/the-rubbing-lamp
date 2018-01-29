@@ -59,7 +59,7 @@ project1 = Project.create(
   deadline: "03/01/2018",
   funding_raised: 6000,
   category_id: category1.id,
-  image: 'https://img00.deviantart.net/daea/i/2010/145/9/8/space_dance_by_diamantsoft.jpg'
+  image: 'http://img00.deviantart.net/daea/i/2010/145/9/8/space_dance_by_diamantsoft.jpg'
 )
 
 project2 = Project.create(
@@ -71,7 +71,7 @@ project2 = Project.create(
   deadline: "01/03/2018",
   funding_raised: 1500,
   category_id: category4.id,
-  image: 'https://s-i.huffpost.com/gen/3277092/images/n-GRADUATION-CEREMONY-628x314.jpg'
+  image: 'http://s-i.huffpost.com/gen/3277092/images/n-GRADUATION-CEREMONY-628x314.jpg'
 )
 
 project3 = Project.create(
@@ -83,7 +83,7 @@ project3 = Project.create(
   deadline: "20/01/2018",
   funding_raised: 0,
   category_id: category3.id,
-  image: 'https://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
+  image: 'http://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
 )
 
 project4 = Project.create(
@@ -122,7 +122,7 @@ project6 = Project.create(
   deadline: "2/1/2018",
   funding_raised: 35000,
   category_id: category1.id,
-  image: 'https://img00.deviantart.net/8736/i/2012/171/8/0/paint_me_by_aheathphoto-d548ekg.jpg'
+  image: 'http://img00.deviantart.net/8736/i/2012/171/8/0/paint_me_by_aheathphoto-d548ekg.jpg'
 )
 
 project6 = Project.create(
@@ -135,7 +135,7 @@ project6 = Project.create(
   deadline: "24/5/2018",
   funding_raised: 8100,
   category_id: category1.id,
-  image: 'https://i.ytimg.com/vi/4jYOOk-cJj0/maxresdefault.jpg'
+  image: 'http://i.ytimg.com/vi/4jYOOk-cJj0/maxresdefault.jpg'
 )
 
 # Rewards
