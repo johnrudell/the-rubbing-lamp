@@ -74,17 +74,17 @@ project2 = Project.create(
   image: 'https://s-i.huffpost.com/gen/3277092/images/n-GRADUATION-CEREMONY-628x314.jpg'
 )
 
-# project3 = Project.create(
-#   title: 'Simon\'s future',
-#   short_blurb: 'I\'m going places',
-#   description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-#   author_id: user2.id,
-#   funding_goal: 100000,
-#   deadline: "20/01/2018",
-#   funding_raised: 0,
-#   category_id: category3.id,
-#   image: 'http://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
-# )
+project3 = Project.create(
+  title: 'Simon\'s future',
+  short_blurb: 'I\'m going places',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  author_id: user2.id,
+  funding_goal: 100000,
+  deadline: "20/01/2018",
+  funding_raised: 0,
+  category_id: category3.id,
+  image: 'http://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
+)
 #
 # project4 = Project.create(
 #   title: 'Unity Running',
