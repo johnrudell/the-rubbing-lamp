@@ -59,7 +59,7 @@ class ProjectShow extends React.Component {
         <div className="p-show-top">
           <div className="p-show-author">
             <img className="author-img"
-              src="http://ksr-ugc.imgix.net/missing_user_avatar.png?w=40&h=40&fit=crop&v=&auto=format&q=92&s=8c0db61c92692000c2678b375fc31714" />
+              src="https://ksr-ugc.imgix.net/missing_user_avatar.png?w=40&h=40&fit=crop&v=&auto=format&q=92&s=8c0db61c92692000c2678b375fc31714" />
             <p className="author-name">By {project.author.username}</p>
           </div>
           <div className="p-show-header">

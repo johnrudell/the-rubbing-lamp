@@ -1,8 +1,8 @@
-<h1><a href="http://the-rubbing-lamp.herokuapp.com/#/">The Rubbing Lamp</a></h1>
+<h1><a href="https://the-rubbing-lamp.herokuapp.com/#/">The Rubbing Lamp</a></h1>
 
 <p>The Rubbing Lamp, a Kickstarter clone, is a crowdfunding platform that grants users the ability to make a well thought-out project (wish). Other users (genies) can back a project and ultimately grant that wish when it is fully funded.</p>
 
-<img src="http://res.cloudinary.com/rudell84/image/upload/v1515783310/rubbing-lamp-home.jpg_y9xg8v.png"></img>
+<img src="https://res.cloudinary.com/rudell84/image/upload/v1515783310/rubbing-lamp-home.jpg_y9xg8v.png"></img>
 
 <h2>Features</h2>
 <ul>
@@ -15,4 +15,4 @@
 </ul>
 
 <h2>Project Show Page</h2>
-<img src="http://res.cloudinary.com/rudell84/image/upload/v1515783726/rubbing-lamp-show_iwl0yg.png"></img>
+<img src="https://res.cloudinary.com/rudell84/image/upload/v1515783726/rubbing-lamp-show_iwl0yg.png"></img>
