@@ -33,7 +33,9 @@
     &:last-child {
       padding-left: 0;
       text-align: right;
-      color: $color-black1;
+      a {
+        color: $color-black1;
+      }
     }
   }
 }
