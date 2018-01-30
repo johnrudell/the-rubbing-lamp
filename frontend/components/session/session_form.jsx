@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
         <div className="row content session-form-container">
           <form className="session-form-box">
             <div className="session-form-addon session-form-header">
-              Have an account?
+              Have an account?&nbsp;
               <Link onClick={this.props.clearSessionErrors} className="link" to="/login">
                 Log in
               </Link>
@@ -144,7 +144,7 @@ class SessionForm extends React.Component {
               <p className="small-text">Log in immediately and experience the wonders of being a genie.</p>
             </div>
             <div className="session-form-addon session-form-footer">
-              New to The Rubbing Lamp?
+              New to The Rubbing Lamp?&nbsp;
               <Link onClick={this.props.clearSessionErrors} className="link" to='/signup'>
                 Sign up!
               </Link>
