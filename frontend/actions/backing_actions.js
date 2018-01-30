@@ -9,31 +9,10 @@ export const receiveBacking = backing => {
   };
 };
 
-export const createBacking = backing => {
-  // debugger
+export const createBacking = backings => {
   return dispatch => {
-    return APIUtil.createBacking(backing).then(backing => {
-      debugger
+    return APIUtil.createBacking(backings).then(backing => {
       return dispatch(receiveBacking(backing));
     })
   }
 }
-
-// export const createBacking = backings => {
-//   return dispatch => {
-//     return APIUtil.createBacking(backings).then(backing => {
-//       return dispatch(receiveBacking(backing));
-//     })
-//   }
-// }
-
-// export const createBacking = (contributions) => dispatch => {
-//   return (
-//     APIUtil.createBacking(contributions)
-//     .then( (contribution) => {
-//       return dispatch(reciveBacking(contribution));
-//       }
-//
-//     )
-//   );
-// }

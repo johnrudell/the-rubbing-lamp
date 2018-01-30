@@ -42,7 +42,13 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :rewards
 
-  # has_many :backers,
-  #   through: :backings,
-  #   source: :user
+  def total_funding
+    amounts = []
+    rewards.each do |reward|
+      amounts << reward.total_backings
+    end
+
+    amounts.inject(0) { |sum, amt| sum + amt }
+  end
+
 end

@@ -7,4 +7,15 @@ class Reward < ApplicationRecord
   has_many :backers,
     through: :backings,
     source: :backer
+
+  def total_backings
+    amounts = []
+
+    backings.each do |backing|
+      amounts << backing.amount
+    end
+
+    amounts.inject(0) { |sum, amt| sum + amt }
+  end
+
 end

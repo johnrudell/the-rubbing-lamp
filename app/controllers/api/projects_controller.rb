@@ -10,7 +10,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    # debugger
     params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
     @project = Project.new(project_params)
     @project.author = current_user
@@ -23,7 +22,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    # @project = Project.find(params[:id])
     @project = current_user.projects.find(params[:id])
     params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
 

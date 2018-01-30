@@ -91,6 +91,15 @@
   }
 }
 
+@media only screen and (min-width: 1500px) {
+  .featured-project-container {
+    flex: 3;
+  }
+  .preview-project-list {
+    flex: 5;
+  }
+}
+
 .view-all-button {
   margin-top: 20px;
   text-transform: uppercase;

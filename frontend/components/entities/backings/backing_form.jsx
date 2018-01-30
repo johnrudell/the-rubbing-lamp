@@ -12,7 +12,6 @@ class BackingForm extends React.Component {
       reward_id: this.props.reward.id
     };
 
-    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,13 +21,11 @@ class BackingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
-    debugger
+    
     if (this.props.reward.amount > this.state.amount) {
       this.setState({amount: this.props.reward.amount});
-      // solve double click of button by putting the createBacking here as well
     } else {
       this.props.createBacking(this.state).then(backing => {
-        debugger
         return this.props.history.push(`/projects/${this.props.project.id}`);
       });
     }
@@ -63,15 +60,17 @@ class BackingForm extends React.Component {
 
         <p className="pledge-subtext">Pledge amount</p>
 
-        <form className="b-reward-form">
+        <form onSubmit={this.handleSubmit} className="b-reward-form">
           <div className="b-reward-input-cont">
             <span className="b-reward-span">$</span>
             <input className="b-reward-input"
               type="number"
-              value={this.state.amount}
-              onChange={this.update()} />
+              min={reward.amount}
+              placeholder={reward.amount}
+              onChange={this.update()}
+               />
           </div>
-          <button className="b-reward-submit" onClick={this.handleSubmit}>
+          <button className="b-reward-submit">
             Grant this wish
           </button>
         </form>
@@ -80,4 +79,4 @@ class BackingForm extends React.Component {
   }
 }
 
-export default BackingForm;
+export default withRouter(BackingForm);

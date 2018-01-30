@@ -24,10 +24,10 @@ class Stats extends React.Component {
     return monthNames[monthIndex] + ' ' + day + ', ' + year;
   }
 
-  totalMoneyRaised() {
+  totalBackers() {
     let total = [];
-    this.props.projects.forEach( project => {
-      total.push(project.funding_raised);
+    this.props.projects.forEach(project => {
+      total.push(project.total_backers);
     });
     let sum = total.reduce((a, b) => a + b, 0);
     return numberWithCommas(sum);
@@ -35,8 +35,8 @@ class Stats extends React.Component {
 
   fundedProjects() {
     let count = 0;
-    this.props.projects.forEach( project => {
-      if (project.funding_raised > project.funding_goal) {
+    this.props.projects.forEach(project => {
+      if (project.funding >= project.funding_goal) {
         count++;
       }
     });
@@ -59,8 +59,8 @@ class Stats extends React.Component {
           <p className="s-bottom">Making wishes come true.</p>
         </div>
         <div className="stat">
-          <p className="s-top">TOTAL FUNDING RAISED</p>
-          <p className="s-bottom">${this.totalMoneyRaised()}</p>
+          <p className="s-top">TOTAL BACKERS</p>
+          <p className="s-bottom">{this.totalBackers()}</p>
         </div>
         <div className="stat">
           <p className="s-top">FUNDED WISHES</p>

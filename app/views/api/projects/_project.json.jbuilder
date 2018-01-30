@@ -24,3 +24,9 @@ json.rewards project.rewards do |reward|
                         :project,
                         :delivery_date
 end
+
+json.total_backers project.rewards.map { |reward|
+   reward.backings.count
+}.reduce(:+)
+
+json.funding project.total_funding

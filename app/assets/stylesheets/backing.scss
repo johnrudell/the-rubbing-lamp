@@ -158,6 +158,9 @@
     cursor: pointer;
     transform: translateY(-1px);
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 // larger than 900px

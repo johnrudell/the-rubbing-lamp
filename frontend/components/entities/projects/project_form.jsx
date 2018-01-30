@@ -253,7 +253,7 @@ class ProjectForm extends React.Component {
           <div className="new-project-header">
             <h1>Rub the Lamp</h1>
             <p>
-              Make a great first impression with your wishes title
+              Make a great first impression with your wish's title
               and image, and set your funding goal, campaign duration,
               and wish category.
             </p>
@@ -277,7 +277,7 @@ class ProjectForm extends React.Component {
                 </div>
                 <p className="input-footer">
                   This is the first thing that people will see when they
-                  come across your project. Choose an image that’s crisp and text-free.
+                  come across your wish. Choose an image that’s crisp and text-free.
                 </p>
               </div>
             </li>

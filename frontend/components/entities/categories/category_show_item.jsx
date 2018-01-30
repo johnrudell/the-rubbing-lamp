@@ -6,7 +6,7 @@ class CategoryShowItem extends React.Component {
 
   render() {
     const { project } = this.props;
-    const percentFunded = percentFundedFunction(project.funding_raised, project.funding_goal);
+    const percentFunded = percentFundedFunction(project.funding, project.funding_goal);
 
     return (
       <li className="preview-project">

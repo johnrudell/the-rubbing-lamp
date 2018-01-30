@@ -31,18 +31,23 @@ class Footer extends React.Component {
 
         <ul className="portfolio-link-list">
           <li>
-            <a className="color-green-hover" href="http://github.com/johnrudell">
-              <i className="fa fa-github" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
             <a className="color-green-hover" href="http://www.linkedin.com/in/johnrudell/">
               <i className="fa fa-linkedin-square" aria-hidden="true"></i>
             </a>
           </li>
           <li>
+            <a className="color-green-hover" href="http://github.com/johnrudell">
+              <i className="fa fa-github" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
             <a className="color-green-hover" href="http://johnrudell.com/">
               <i className="fa fa-user" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a className="color-green-hover" href="https://angel.co/johnrudell">
+              <i className="fa fa-angellist" aria-hidden="true"></i>
             </a>
           </li>
         </ul>

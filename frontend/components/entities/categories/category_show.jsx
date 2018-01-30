@@ -44,8 +44,9 @@ class CategoryShow extends React.Component {
     if (!recentProject) {
       return <div className="empty-category-projects">There are no projects for this category yet.</div>;
     } else {
+      // if (recentProject.funding === null) recentProject.funding = recentProject.funding_raised;
 
-      const percentFunded = percentFundedFunction(recentProject.funding_raised, recentProject.funding_goal);
+      const percentFunded = percentFundedFunction(recentProject.funding, recentProject.funding_goal);
 
       const featuredProject = (
         <Link className="featured-project" to={`/projects/${recentProject.id}`}>

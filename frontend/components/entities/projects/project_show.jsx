@@ -20,7 +20,7 @@ class ProjectShow extends React.Component {
     const daysToGo = (
       daysToGoNoString(
         this.props.project.deadline,
-        this.props.funding_raised,
+        this.props.project.funding,
         this.props.funding_goal)
     );
 
@@ -35,9 +35,10 @@ class ProjectShow extends React.Component {
     const { project, currentUser } = this.props;
 
     if (!project || !project.category) return null;
+    if (project.total_backers === null) project.total_backers = 0;
 
-    const percentFunded = percentFundedFunction(project.funding_raised, project.funding_goal);
-    const progressFunded = progressFundedFunction(project.funding_raised, project.funding_goal);
+    const percentFunded = percentFundedFunction(project.funding, project.funding_goal);
+    const progressFunded = progressFundedFunction(project.funding, project.funding_goal);
 
     let updateButton;
     if (currentUser && currentUser.id === project.author.id) {
@@ -51,8 +52,7 @@ class ProjectShow extends React.Component {
       updateButton = "";
     }
 
-    const backerNum = project.funding_raised > 500 ? "8" : "0"
-    const backerText = backerNum === 1 ? "backer" : "backers"
+    const backerText = project.total_backers === 1 ? "backer" : "backers"
 
     return (
       <div className="main-content project-show">
@@ -87,13 +87,13 @@ class ProjectShow extends React.Component {
               trailColor="#e8e8e8"
               strokeColor="#0f7262" />
             <div className="p-show-funding p-show-info-item">
-              ${numberWithCommas(project.funding_raised)}
+              ${numberWithCommas(project.funding)}
             </div>
             <p>pledged of ${numberWithCommas(project.funding_goal)} goal</p>
-            <div className="p-show-info-item">{backerNum}</div>
+            <div className="p-show-info-item">{project.total_backers}</div>
             <p>{backerText}</p>
             <div className="p-show-info-item">
-              {daysToGoNoString(project.deadline, project.funding_raised, project.funding_goal)}
+              {daysToGoNoString(project.deadline, project.funding, project.funding_goal)}
             </div>
             <p>{this.renderWishGrantedConditional()}</p>
             <Link className="backing-button" to={`/projects/${project.id}/backing`}>
