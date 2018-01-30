@@ -9,6 +9,7 @@
   <li>User Authentication</li>
   <li>Project Creation</li>
   <li>Project Update</li>
+  <li>Rewards and Backings</li>
   <li>Category Filtering</li>
   <li>Statistics Bar</li>
   <li>Amazon Web Services and Paperclip Image Uploading</li>
