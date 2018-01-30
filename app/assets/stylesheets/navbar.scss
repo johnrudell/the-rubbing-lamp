@@ -35,6 +35,9 @@
       text-align: right;
       a {
         color: $color-black1;
+        &:hover {
+          color: $color-dark-green1;
+        }
       }
     }
   }
