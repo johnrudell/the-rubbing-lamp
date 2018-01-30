@@ -139,107 +139,107 @@ project7 = Project.create(
 )
 
 # Rewards
-reward1_1 = Reward.create(
-  amount: 100,
-  title: 'Space shoes',
-  description: 'Wear these shoes and you\'ll defy gravity',
-  delivery_date: '28/5/2018',
-  project_id: project1.id
-)
-
-reward1_2 = Reward.create(
-  amount: 500,
-  title: 'A month of classes',
-  description: 'Free classes to explore the possibilities of space dance',
-  delivery_date: '28/5/2018',
-  project_id: project1.id
-)
-
-reward2_1 = Reward.create(
-  amount: 1000,
-  title: '1k',
-  description: 'I am in your debt!',
-  delivery_date: '18/8/2018',
-  project_id: project2.id
-)
-
-reward3_1 = Reward.create(
-  amount: 100,
-  title: 'Dinner',
-  description: 'Let\'s go out for a night. My treat!',
-  delivery_date: '18/9/2018',
-  project_id: project3.id
-)
-
-reward3_2 = Reward.create(
-  amount: 1000,
-  title: 'Plant watering',
-  description: 'I will water your plants for six months. I love watering my house plants, so it just brings me joy to do yours.',
-  delivery_date: '18/9/2018',
-  project_id: project3.id
-)
-
-reward4_1 = Reward.create(
-  amount: 150,
-  title: 'Unity shoes',
-  description: 'You\'ll get these one of kind pairs of shoes that offer excellent bounce and feeling.',
-  delivery_date: '4/4/2018',
-  project_id: project4.id
-)
-
-reward5_1 = Reward.create(
-  amount: 150,
-  title: 'Snow heart kit',
-  description: 'This snow heart kit provides you with our secret formula to create beautiful snow hearts. You will never get tired of them!',
-  delivery_date: '4/7/2018',
-  project_id: project5.id
-)
-
-reward5_2 = Reward.create(
-  amount: 400,
-  title: 'Snow heart kits for the whole family (4)',
-  description: 'That\'s right. Four kits for the littles ones too. Have a grand snow heart fight filled with love. No one\'s getting hurt here.',
-  delivery_date: '4/7/2018',
-  project_id: project5.id
-)
-
-reward6_1 = Reward.create(
-  amount: 100,
-  title: 'Three pails of paint (red, green, and blue)',
-  description: 'The essential colors to anyone\'s painting project.',
-  delivery_date: '12/6/2018',
-  project_id: project6.id
-)
-
-reward7_1 = Reward.create(
-  amount: 100,
-  title: '100 cranes',
-  description: 'Simple, yet elegant. 900 more and you get a wish!',
-  delivery_date: '16/5/2018',
-  project_id: project7.id
-)
-
-reward7_2 = Reward.create(
-  amount: 1000,
-  title: '1000 cranes',
-  description: 'That\'s it! You get a wish!',
-  delivery_date: '16/5/2018',
-  project_id: project7.id
-)
-
-reward7_3 = Reward.create(
-  amount: 2000,
-  title: 'Any origami creation you would like',
-  description: 'That could mean a dragon built of modular origami. Or a lifesize you made from a single sheet of paper. You decide.',
-  delivery_date: '16/5/2018',
-  project_id: project7.id
-)
-
-
-
-# Backings
-backing1 = Backing.create(reward_id: reward1_1.id, backer_id: user1.id, amount: 100)
-backing2 = Backing.create(reward_id: reward1_1.id, backer_id: user2.id, amount: 150)
-backing3 = Backing.create(reward_id: reward2_1.id, backer_id: user1.id, amount: 500)
-backing4 = Backing.create(reward_id: reward2_1.id, backer_id: user1.id, amount: 500)
-backing5 = Backing.create(reward_id: reward2_1.id, backer_id: user2.id, amount: 1000)
+# reward1_1 = Reward.create(
+#   amount: 100,
+#   title: 'Space shoes',
+#   description: 'Wear these shoes and you\'ll defy gravity',
+#   delivery_date: '28/5/2018',
+#   project_id: project1.id
+# )
+#
+# reward1_2 = Reward.create(
+#   amount: 500,
+#   title: 'A month of classes',
+#   description: 'Free classes to explore the possibilities of space dance',
+#   delivery_date: '28/5/2018',
+#   project_id: project1.id
+# )
+#
+# reward2_1 = Reward.create(
+#   amount: 1000,
+#   title: '1k',
+#   description: 'I am in your debt!',
+#   delivery_date: '18/8/2018',
+#   project_id: project2.id
+# )
+#
+# reward3_1 = Reward.create(
+#   amount: 100,
+#   title: 'Dinner',
+#   description: 'Let\'s go out for a night. My treat!',
+#   delivery_date: '18/9/2018',
+#   project_id: project3.id
+# )
+#
+# reward3_2 = Reward.create(
+#   amount: 1000,
+#   title: 'Plant watering',
+#   description: 'I will water your plants for six months. I love watering my house plants, so it just brings me joy to do yours.',
+#   delivery_date: '18/9/2018',
+#   project_id: project3.id
+# )
+#
+# reward4_1 = Reward.create(
+#   amount: 150,
+#   title: 'Unity shoes',
+#   description: 'You\'ll get these one of kind pairs of shoes that offer excellent bounce and feeling.',
+#   delivery_date: '4/4/2018',
+#   project_id: project4.id
+# )
+#
+# reward5_1 = Reward.create(
+#   amount: 150,
+#   title: 'Snow heart kit',
+#   description: 'This snow heart kit provides you with our secret formula to create beautiful snow hearts. You will never get tired of them!',
+#   delivery_date: '4/7/2018',
+#   project_id: project5.id
+# )
+#
+# reward5_2 = Reward.create(
+#   amount: 400,
+#   title: 'Snow heart kits for the whole family (4)',
+#   description: 'That\'s right. Four kits for the littles ones too. Have a grand snow heart fight filled with love. No one\'s getting hurt here.',
+#   delivery_date: '4/7/2018',
+#   project_id: project5.id
+# )
+#
+# reward6_1 = Reward.create(
+#   amount: 100,
+#   title: 'Three pails of paint (red, green, and blue)',
+#   description: 'The essential colors to anyone\'s painting project.',
+#   delivery_date: '12/6/2018',
+#   project_id: project6.id
+# )
+#
+# reward7_1 = Reward.create(
+#   amount: 100,
+#   title: '100 cranes',
+#   description: 'Simple, yet elegant. 900 more and you get a wish!',
+#   delivery_date: '16/5/2018',
+#   project_id: project7.id
+# )
+#
+# reward7_2 = Reward.create(
+#   amount: 1000,
+#   title: '1000 cranes',
+#   description: 'That\'s it! You get a wish!',
+#   delivery_date: '16/5/2018',
+#   project_id: project7.id
+# )
+#
+# reward7_3 = Reward.create(
+#   amount: 2000,
+#   title: 'Any origami creation you would like',
+#   description: 'That could mean a dragon built of modular origami. Or a lifesize you made from a single sheet of paper. You decide.',
+#   delivery_date: '16/5/2018',
+#   project_id: project7.id
+# )
+#
+#
+#
+# # Backings
+# backing1 = Backing.create(reward_id: reward1_1.id, backer_id: user1.id, amount: 100)
+# backing2 = Backing.create(reward_id: reward1_1.id, backer_id: user2.id, amount: 150)
+# backing3 = Backing.create(reward_id: reward2_1.id, backer_id: user1.id, amount: 500)
+# backing4 = Backing.create(reward_id: reward2_1.id, backer_id: user1.id, amount: 500)
+# backing5 = Backing.create(reward_id: reward2_1.id, backer_id: user2.id, amount: 1000)
