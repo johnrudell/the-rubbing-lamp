@@ -83,7 +83,7 @@ project3 = Project.create(
   deadline: "20/01/2018",
   funding_raised: 0,
   category_id: category3.id,
-  image: 'https://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
+  image: 'http://i.ytimg.com/vi/c1ABm9QRQzg/maxresdefault.jpg'
 )
 
 project4 = Project.create(
