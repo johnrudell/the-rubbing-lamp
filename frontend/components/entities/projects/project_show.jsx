@@ -64,7 +64,7 @@ class ProjectShow extends React.Component {
           </div>
           <div className="p-show-header">
             <h1>{project.title}</h1>
-            <p>{project.short_blurb}</p>
+            <p>{project.shortBlurb}</p>
           </div>
           <div className="p-show-update">
             {updateButton}
