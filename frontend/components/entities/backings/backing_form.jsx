@@ -21,9 +21,14 @@ class BackingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
-    
+
     if (this.props.reward.amount > this.state.amount) {
       this.setState({amount: this.props.reward.amount});
+
+      // set amount to minimum and send
+      this.props.createBacking(this.state).then(backing => {
+        return this.props.history.push(`/projects/${this.props.project.id}`);
+      });
     } else {
       this.props.createBacking(this.state).then(backing => {
         return this.props.history.push(`/projects/${this.props.project.id}`);
