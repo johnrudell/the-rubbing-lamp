@@ -30,7 +30,7 @@ class BackingIndex extends React.Component {
               {project.title}
             </Link>
           </h1>
-          <h4 className="b-index-author">by {currentUser.username}</h4>
+          <h4 className="b-index-author">by {project.author.username}</h4>
         </header>
 
         <section className="b-index-content">
