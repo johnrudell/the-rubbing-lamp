@@ -6,7 +6,7 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      categoryId: 89,
+      categoryId: 97,
       title: '',
       shortBlurb: '',
       deadline: '',
