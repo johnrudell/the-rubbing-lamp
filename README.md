@@ -19,10 +19,9 @@ The Rubbing Lamp, a Kickstarter clone, is a crowdfunding platform that grants us
 
 A user can create a "wish" with rewards. Other users can then back these rewards. I created the smooth interface using React components keeping my code DRY and scalable.
 
-<p float="left" align="middle">
-  <img src="https://s3.amazonaws.com/the-rubbing-lamp-dev/screenshots/rub-create.png" width="48%" style="margin-right: 10px;" />
-  <img src="https://s3.amazonaws.com/the-rubbing-lamp-dev/screenshots/rub-show.png" width="48%" />
-</p>
+
+<img src="https://s3.amazonaws.com/the-rubbing-lamp-dev/screenshots/rub-create.png" />
+<img src="https://s3.amazonaws.com/the-rubbing-lamp-dev/screenshots/rub-show.png" />
 
 ## Technologies
  + Ruby on Rails
