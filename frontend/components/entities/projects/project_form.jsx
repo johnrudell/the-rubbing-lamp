@@ -363,7 +363,7 @@ class ProjectForm extends React.Component {
             </li>
             {this.rewards()}
             <button className="add-reward-button" onClick={this.addReward}>
-              <i class="fa fa-plus" aria-hidden="true"></i>
+              <i className="fa fa-plus" aria-hidden="true"></i>
               Add a new reward
             </button>
           </ul>
