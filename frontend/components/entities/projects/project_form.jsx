@@ -6,7 +6,7 @@ class ProjectForm extends React.Component {
     super(props)
 
     this.state = {
-      categoryId: 97,
+      categoryId: 0,
       title: '',
       shortBlurb: '',
       deadline: '',
@@ -34,6 +34,7 @@ class ProjectForm extends React.Component {
 
   componentDidMount(){
     this.props.fetchCategories();
+
     if (this.props.match.params.projectId) {
       this.props.fetchProject(this.props.match.params.projectId)
     }
@@ -44,6 +45,11 @@ class ProjectForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
+    if (this.props.categories.length > 0) {
+      this.setState({ categoryId: this.props.categories[0].id });
+    }
+
     if (nextProps.project) {
       this.setState(nextProps.project)
     }
