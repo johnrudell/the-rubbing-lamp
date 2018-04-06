@@ -24,9 +24,7 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
+    return e => this.setState({ [field]: e.target.value });
   }
 
   handleSubmit(e) {
@@ -52,11 +50,10 @@ class SessionForm extends React.Component {
 
     this.setState = {
       username: 'demoUser',
-      email: "demoUser@demo.com",
-      password: "password"
+      email: 'demoUser@demo.com',
+      password: 'password'
     };
     const demoSession = Object.assign({}, this.setState);
-
 
     this.props.login(demoSession);
   }
