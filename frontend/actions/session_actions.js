@@ -26,11 +26,11 @@ export const clearSessionErrors = () => {
 
 // Can refractor to implicit returns later
 export const signup = user => dispatch => {
-  return APIUtil.signup(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
-    dispatch(receiveSessionErrors(err.responseJSON))
-  ))
+  return APIUtil.signup(user).then(user => {
+    return dispatch(receiveCurrentUser(user));
+  }, err => {
+    return dispatch(receiveSessionErrors(err.responseJSON));
+  });
 };
 
 // Returning everything syntax
