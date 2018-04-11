@@ -33,8 +33,6 @@ const Navbar = ({ currentUser, logout }) => {
     </nav>
   );
 
-  // <span>Search</span>
-  // <i className="fa fa-search" aria-hidden="true"></i>
 }
 
 export default Navbar;
